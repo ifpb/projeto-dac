@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Calculadora</title>
+</head>
+<body>
+	<f:view />
+	
+	<h:messages globalOnly="true" />
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Número 1" />
+			<h:inputText value="#{calculadoraMBean.numero1}" />
+			
+			<h:outputLabel value="Número 2" />
+			<h:inputText value="#{calculadoraMBean.numero2}" />
+			
+			<h:outputLabel value="Operação" />
+			<h:selectOneListbox value="#{calculadoraMBean.operacao}">
+				<f:selectItem itemValue="soma" itemLabel="Soma"></f:selectItem>
+				<f:selectItem itemValue="subtracao" itemLabel="Subtração"></f:selectItem>
+				<f:selectItem itemValue="multiplicacao" itemLabel="Multiplicação"></f:selectItem>
+				<f:selectItem itemValue="divisao" itemLabel="Divisão"></f:selectItem>
+			</h:selectOneListbox>
+			
+			<h:commandButton value="Calcular" action="#{calculadoraMBean.calcular}"></h:commandButton>
+			
+		</h:panelGrid>
+	</h:form>
+	
+	<h2>Resultado = <h:outputText value="#{calculadoraMBean.resultado}" /></h2>
+
+</body>
+</html>
