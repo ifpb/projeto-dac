@@ -4,6 +4,9 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
+import br.edu.ifpb.dac.ejb.services.CalculadoraControllerLocal;
+import br.edu.ifpb.dac.ejb.services.CalculadoraControllerRemote;
+
 @Stateless
 @Local(CalculadoraControllerLocal.class)
 @Remote(CalculadoraControllerRemote.class)

@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.ejb.sessionbeans;
+package br.edu.ifpb.dac.ejb.services;
 
 public interface CalculadoraControllerLocal {
 

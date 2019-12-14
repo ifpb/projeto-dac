@@ -9,9 +9,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Usuario {
-
-	public enum Papel { ADMINISTRADOR, ALUNO, PROFESSOR }
 	
+	public enum Papel { ADMINISTRADOR, PROFESSOR, ALUNO }
+
 	@Id
 	@GeneratedValue
 	private Long id;

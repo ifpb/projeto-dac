@@ -15,6 +15,7 @@
 			<groupId>br.edu.ifpb.dac</groupId>
 			<artifactId>ProjetoDACEJB</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>br.edu.ifpb.dac</groupId>
@@ -28,10 +29,6 @@
 			<plugin>
 				<artifactId>maven-ear-plugin</artifactId>
 				<configuration>
-					<ejbModule>
-						<groupId>br.edu.ifpb.dac</groupId>
-						<artifactId>ProjetoDACEJB</artifactId>
-					</ejbModule>
 					<modules>
 						<webModule>
 							<groupId>br.edu.ifpb.dac</groupId>

@@ -24,14 +24,14 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>br.edu.ifpb.dac</groupId>
-			<artifactId>ProjetoDACEJB</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>org.glassfish.main.appclient</groupId>
 			<artifactId>gf-client</artifactId>
 			<version>5.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>br.edu.ifpb.dac</groupId>
+			<artifactId>ProjetoDACEJB</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
