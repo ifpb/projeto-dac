@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+
+    <title>Cadastro</title>
+    <style type="text/css">
+        @IMPORT url("estilo.css");
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</h:head>
+<h:body>
+    <style>
+        .grande {
+            width: 100%;
+        }
+    </style>
+    <div id="topo">
+        <h:link outcome="index.xhtml"><h:graphicImage name="logo.png" library="imagens" width="50px"
+                                                      height="50px"/></h:link>
+    </div>
+    <center>
+        <h3><h:outputLabel value="Enter your academic references"/></h3>
+    </center>
+
+    <div class="box">
+
+        <h:form>
+            <div class="form-group">
+                <h:outputLabel for="email" value="Endereço de Email:"/>
+                <h:inputText id="email" value="" class="form-control">
+                    <f:passThroughAttribute name="placeholder" value="Email"/>
+                </h:inputText>
+                <h:outputLabel for="nome" value="Nome"/>
+                <h:inputText id="nome" value="" class="form-control">
+                    <f:passThroughAttribute name="placeholder" value="Nome:"/>
+                </h:inputText>
+                <h:outputLabel for="matricula" value="Matricula"/>
+                <h:inputText id="matricula" value="" class="form-control">
+                    <f:passThroughAttribute name="placeholder" value="Matricula:"/>
+                </h:inputText>
+
+                <h:outputLabel for="senha" value="Senha:"/>
+                <h:inputSecret id="senha" value="" class="form-control">
+                    <f:passThroughAttribute name="placeholder" value="Senha"/>
+                </h:inputSecret>
+
+                <h:outputLabel for="curso" value="Curso:"/>
+                <h:selectOneMenu id="curso" value="curso" class="form-control">
+                    <f:selectItem itemValue="1" itemLabel="ADS"/>
+                    <f:selectItem itemValue="2" itemLabel="Engenharia Civil"/>
+                    <f:selectItem itemValue="2" itemLabel="Engenharia de automação e controle"/>
+                </h:selectOneMenu>
+
+            </div>
+            <h:commandButton value="Register" class="btn btn-primary grande">
+
+            </h:commandButton>
+        </h:form>
+    </div>
+
+    <div id="rodape">
+        <hr style="background-color: #D3D1D1; height: 1px;"></hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-md-8">
+                    <h:commandLink class="footer" href="#">IFPB</h:commandLink>
+                </div>
+                <div class="col-md-4">
+                    <p class="muted pull-right">© Todos os direitos reservados</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+</h:body>
+</html>
