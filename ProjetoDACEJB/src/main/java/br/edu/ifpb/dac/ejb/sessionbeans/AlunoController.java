@@ -24,7 +24,7 @@ public class AlunoController implements Serializable {
     }
 
     public String salvar(){
-        this.buscarTodosOsAlunos().add(aluno);
+        alunoDAO.salvar(aluno);
         return null;
     }
 
