@@ -23,7 +23,7 @@ public class AlunoController implements Serializable {
         return alunoDAO.buscarTodos();
     }
 
-    public String salvar(){
+    public String salvar(Aluno aluno){
         alunoDAO.salvar(aluno);
         return null;
     }

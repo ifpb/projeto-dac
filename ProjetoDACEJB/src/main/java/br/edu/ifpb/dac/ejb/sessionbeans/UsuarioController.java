@@ -24,7 +24,7 @@ public class UsuarioController implements Serializable {
         return usuarioDAO.buscarTodos();
     }
 
-    public String salvar(){
+    public String salvar(Usuario usuario){
         usuarioDAO.salvar(usuario);
         return null;
     }

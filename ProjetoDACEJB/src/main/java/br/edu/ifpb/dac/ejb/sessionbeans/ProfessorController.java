@@ -23,7 +23,7 @@ public class ProfessorController implements Serializable {
         return professorDao.buscarTodos();
     }
 
-    public String salvar(){
+    public String salvar(Professor professor){
         professorDao.salvar(professor);
         return null;
     }
