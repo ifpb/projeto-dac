@@ -29,6 +29,10 @@ public class AlunoDao {
         return em.find(Aluno.class, id);
     }
 
+    public void remover (Aluno a){
+        em.remove(a);
+    }
+
     public List<Aluno> buscarTodos() {
         return em.createQuery("SELECT a FROM Aluno a", Aluno.class).getResultList();
     }

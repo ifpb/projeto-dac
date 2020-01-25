@@ -28,6 +28,10 @@ public class PeriodoDao {
         return em.find(Periodo.class, id);
     }
 
+    public void remover (Periodo p){
+        em.remove(p);
+    }
+
     public List<Periodo> buscarTodos() {
         return em.createQuery("SELECT p FROM Periodo p", Periodo.class).getResultList();
     }

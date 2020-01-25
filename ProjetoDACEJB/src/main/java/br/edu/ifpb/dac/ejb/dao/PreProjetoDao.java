@@ -28,6 +28,10 @@ public class PreProjetoDao {
         return em.find(PreProjeto.class, id);
     }
 
+    public void remover (PreProjeto p){
+        em.remove(p);
+    }
+
     public List<PreProjeto> buscarTodos() {
         return em.createQuery("SELECT p FROM PreProjeto p", PreProjeto.class).getResultList();
     }

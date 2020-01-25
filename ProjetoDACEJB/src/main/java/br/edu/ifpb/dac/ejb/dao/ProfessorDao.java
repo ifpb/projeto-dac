@@ -29,6 +29,10 @@ public class ProfessorDao {
         return em.find(Professor.class, id);
     }
 
+    public void remover (Professor p){
+        em.remove(p);
+    }
+
     public List<Professor> buscarTodos() {
         return em.createQuery("SELECT p FROM Professor p", Professor.class).getResultList();
     }

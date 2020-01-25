@@ -1,7 +1,8 @@
 package br.edu.ifpb.dac.ejb.dao;
 
+
 import br.edu.ifpb.dac.ejb.entidades.Avaliacao;
-import br.edu.ifpb.dac.ejb.entidades.Professor;
+
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,6 +20,10 @@ public class AvaliacaoDao {
 
     public void salvar(Avaliacao a) {
         em.persist(a);
+    }
+
+    public void remover (Avaliacao a){
+        em.remove(a);
     }
 
     public void atualizar(Avaliacao a){

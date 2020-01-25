@@ -1,5 +1,6 @@
 package br.edu.ifpb.dac.ejb.dao;
 
+import br.edu.ifpb.dac.ejb.entidades.Aluno;
 import br.edu.ifpb.dac.ejb.entidades.Avaliacao;
 import br.edu.ifpb.dac.ejb.entidades.CriterioAvaliacao;
 
@@ -22,6 +23,10 @@ public class CriterioAvaliacaoDao {
 
     public void atualizar(CriterioAvaliacao c){
         em.merge(c);
+    }
+
+    public void remover (CriterioAvaliacao c){
+        em.remove(c);
     }
 
     public CriterioAvaliacao buscar(Long id) {

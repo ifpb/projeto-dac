@@ -36,8 +36,8 @@ public class Inscricao {
 
     public enum Status  { AGUARDANDO, CONTEMPLADO, NEGADO }
 
-    @ElementCollection
-    private List<Inscricao.Status> status;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     public long getId() {
         return id;
@@ -111,11 +111,11 @@ public class Inscricao {
         this.avaliacoes = avaliacoes;
     }
 
-    public List<Status> getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(List<Status> status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }

@@ -28,6 +28,10 @@ public class TemaDao {
         return em.find(Tema.class, id);
     }
 
+    public void remover (Tema t){
+        em.remove(t);
+    }
+
     public List<Tema> buscarTodos() {
         return em.createQuery("SELECT t FROM Tema t", Tema.class).getResultList();
     }
