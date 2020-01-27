@@ -23,11 +23,8 @@ public abstract class Pessoa implements Serializable {
     @Column(length = 20)
     private String senha;
 
-    public enum Curso {ADS, ENGENHARIA_CIVIL, ENGENHARIA_AUTOMACAO}
-
-    @Enumerated(EnumType.STRING)
-    private Curso curso;
-
+    @Column(length = 20)
+    private String curso;
 
     public Long getId() {
         return id;
@@ -69,11 +66,11 @@ public abstract class Pessoa implements Serializable {
         this.senha = senha;
     }
 
-    public Curso getCurso() {
+    public String getCurso() {
         return curso;
     }
 
-    public void setCurso(Curso curso) {
+    public void setCurso(String curso) {
         this.curso = curso;
     }
 }

@@ -3,7 +3,8 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <!-- Required meta tags -->
@@ -26,8 +27,7 @@
         }
     </style>
     <div id="topo">
-        <h:link outcome="index.xhtml"><h:graphicImage name="logo.png" library="imagens" width="50px"
-                                                      height="50px"/></h:link>
+
     </div>
     <center>
         <h3><h:outputLabel value="Enter your academic references"/></h3>
@@ -35,53 +35,108 @@
 
     <div class="box">
 
-        <h:form>
-            <div class="form-group">
-                <h:outputLabel for="email" value="Endereço de Email:"/>
-                <h:inputText id="email" value="" class="form-control">
+       <h:form id="form">
+
+        <h:selectOneRadio id="rb" value="#{clienteMB.tipoPessoa}">
+            <f:selectItem itemId="ALUNO" itemLabel="ALUNO" itemValue="ALUNO" />
+            <f:selectItem itemId="PROFESSOR" itemLabel="PROFESSOR" itemValue="PROFESSOR"/>
+            <f:ajax execute="@this" render="@form"/>
+        </h:selectOneRadio>
+
+        <h:panelGroup id="inputAluno" value="#{clienteMB.tipoPessoa}" rendered="#{clienteMB.tipoPessoa == 'ALUNO'}">
+
+           <div class="form-group" >
+                <h:outputLabel for="emailAluno" value="Endereço de Email do aluno:"/>
+                <h:inputText id="emailAluno" class="form-control" value="#{cadastroController.aluno.email}" required="true"
+                             requiredMessage="Campo obrigatório">
                     <f:passThroughAttribute name="placeholder" value="Email"/>
                 </h:inputText>
-                <h:outputLabel for="nome" value="Nome"/>
-                <h:inputText id="nome" value="" class="form-control">
+                <h:outputLabel for="nomeAluno" value="Nome do aluno:"/>
+                <h:inputText id="nomeAluno" class="form-control" value="#{cadastroController.aluno.nome}" required="true"
+                             requiredMessage="Campo obrigatório">
                     <f:passThroughAttribute name="placeholder" value="Nome:"/>
                 </h:inputText>
-                <h:outputLabel for="matricula" value="Matricula"/>
-                <h:inputText id="matricula" value="" class="form-control">
+                <h:outputLabel for="matriculaAluno" value="Matricula do aluno:"/>
+                <h:inputText id="matriculaAluno" class="form-control" value="#{cadastroController.aluno.matricula}" required="true"
+                             requiredMessage="Campo obrigatório">
                     <f:passThroughAttribute name="placeholder" value="Matricula:"/>
                 </h:inputText>
 
-                <h:outputLabel for="senha" value="Senha:"/>
-                <h:inputSecret id="senha" value="" class="form-control">
+                <h:outputLabel for="cursoAluno" value="Curso do aluno:"/>
+                <h:selectOneRadio id="cursoAluno" value="#{cadastroController.aluno.curso}">
+                    <f:selectItem class="form-check-input" itemValue="ADS" itemLabel="ADS" />
+                    <f:selectItem class="form-check-input" itemValue="EngenhariaCivil" itemLabel="Engenharia Civil" />
+                    <f:selectItem class="form-check-input" itemValue="EngenhariaControle" itemLabel="Engenharia de controle" />
+                </h:selectOneRadio><br/>
+
+                <h:outputLabel for="senhaAluno" value="Senha do aluno:"/>
+                <h:inputSecret id="senhaAluno" class="form-control" value="#{cadastroController.aluno.senha}" required="true"
+                               requiredMessage="Campo obrigatório">
                     <f:passThroughAttribute name="placeholder" value="Senha"/>
                 </h:inputSecret>
 
-                <h:outputLabel for="curso" value="Curso:"/>
-                <h:selectOneMenu id="curso" value="curso" class="form-control">
-                    <f:selectItem itemValue="1" itemLabel="ADS"/>
-                    <f:selectItem itemValue="2" itemLabel="Engenharia Civil"/>
-                    <f:selectItem itemValue="2" itemLabel="Engenharia de automação e controle"/>
-                </h:selectOneMenu>
-
             </div>
-            <h:commandButton value="Register" class="btn btn-primary grande">
+            <h:commandButton value="Register" class="btn btn-primary grande" action="#{cadastroController.CadastrarUsuario}"/>
+        </h:panelGroup>
 
-            </h:commandButton>
-        </h:form>
-    </div>
 
-    <div id="rodape">
-        <hr style="background-color: #D3D1D1; height: 1px;"></hr>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="col-md-8">
-                    <h:commandLink class="footer" href="#">IFPB</h:commandLink>
-                </div>
-                <div class="col-md-4">
-                    <p class="muted pull-right">© Todos os direitos reservados</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+           <h:panelGroup id="inputProfessor" value="#{clienteMB.tipoPessoa}" rendered="#{clienteMB.tipoPessoa == 'PROFESSOR'}">
+
+               <div class="form-group" >
+                   <h:outputLabel for="emailAluno" value="Endereço de Email do Professor:"/>
+                   <h:inputText id="emailProfessor" class="form-control" value="#{cadastroController.professor.email}" required="true"
+                                requiredMessage="Campo obrigatório">
+                       <f:passThroughAttribute name="placeholder" value="Email"/>
+                   </h:inputText>
+                   <h:outputLabel for="nomeProfessor" value="Nome do Professor"/>
+                   <h:inputText id="nomeProfessor" class="form-control" value="#{cadastroController.professor.nome}" required="true"
+                                requiredMessage="Campo obrigatório">
+                       <f:passThroughAttribute name="placeholder" value="Nome:"/>
+                   </h:inputText>
+                   <h:outputLabel for="matriculaProfessor" value="Matricula do Professor"/>
+                   <h:inputText id="matriculaProfessor" class="form-control" value="#{cadastroController.professor.matricula}" required="true"
+                                requiredMessage="Campo obrigatório">
+                       <f:passThroughAttribute name="placeholder" value="Matricula:"/>
+                   </h:inputText>
+
+                   <h:outputLabel for="cursoProfessor" value="Curso do Professor"/>
+                   <h:selectOneRadio id="cursoProfessor" value="#{cadastroController.professor.curso}">
+                       <f:selectItem class="form-check-input" itemValue="ADS" itemLabel="ADS" />
+                       <f:selectItem class="form-check-input" itemValue="EngenhariaCivil" itemLabel="Engenharia Civil" />
+                       <f:selectItem class="form-check-input" itemValue="EngenhariaControle" itemLabel="Engenharia de controle" />
+                   </h:selectOneRadio><br/>
+
+                   <h:outputLabel for="senhaProfessor" value="Senha do Professor:"/>
+                   <h:inputSecret id="senhaProfessor" class="form-control" value="#{cadastroController.professor.senha}" required="true"
+                                  requiredMessage="Campo obrigatório">
+                       <f:passThroughAttribute name="placeholder" value="Senha"/>
+                   </h:inputSecret>
+
+               </div>
+               <h:commandButton value="Register" class="btn btn-primary grande" action="#{cadastroController.CadastrarProfessor}"/>
+           </h:panelGroup>
+
+       </h:form>
+
+
+</div>
+
+
+<!--    <div id="rodape">-->
+<!--        <hr style="background-color: #D3D1D1; height: 1px;"></hr>-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-12">-->
+<!--                <div class="col-md-8">-->
+<!--                    <h:commandLink class="footer" href="#">IFPB</h:commandLink>-->
+<!--                </div>-->
+<!--                <div class="col-md-4">-->
+<!--                    <p class="muted pull-right">© Todos os direitos reservados</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

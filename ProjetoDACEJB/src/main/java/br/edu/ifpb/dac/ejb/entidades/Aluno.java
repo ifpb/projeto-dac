@@ -6,5 +6,9 @@ import java.io.Serializable;
 @Entity
 public class Aluno extends Pessoa implements Serializable {
 
+public Aluno(){
+    super();
+}
+
 
 }
