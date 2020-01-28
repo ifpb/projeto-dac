@@ -5,8 +5,11 @@ import br.edu.ifpb.dac.ejb.entidades.Usuario;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Stateless
@@ -37,7 +40,15 @@ public class AlunoDao {
         return em.createQuery("SELECT a FROM Aluno a", Aluno.class).getResultList();
     }
 
-
+    public Optional<Aluno> buscarPorMatricula(String matricula) {
+        Optional<Aluno> aluno = Optional.empty();
+        try {
+            aluno = Optional.ofNullable((Aluno) em.createQuery("SELECT a FROM Aluno a WHERE a.matricula = :matricula").setParameter("matricula", matricula).setMaxResults(1).getSingleResult());
+        } catch(NoResultException e) {
+            log.log(Level.WARNING, "Nenhum resultado encontrado para este login");
+        }
+        return aluno;
+    }
 
 
 
