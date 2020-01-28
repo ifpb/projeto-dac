@@ -6,6 +6,7 @@ import javax.ejb.Remove;
 import java.util.Optional;
 
 public interface AutenticacaoServiceAluno {
+
     Aluno login(String matricula, String senha) throws AutenticacaoExcecao;
 
     @Remove
