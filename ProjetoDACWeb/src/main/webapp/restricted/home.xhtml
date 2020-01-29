@@ -4,11 +4,14 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 	
-	<ui:composition template="WEB-INF/template.xhtml">
+	<ui:composition template="../WEB-INF/template.xhtml">
 		
 		<ui:define name="principal">
 		
-			<h1>Página Inicial - Seja bem-vindo</h1>
+			<h1>Página Inicial - Seja bem-vindo #{loginAlunoBean.matricula}</h1>
+			<h:form>
+				<h:commandButton value="deslogar" action="#{loginAlunoBean.logout}"/>
+			</h:form>
 		
 		</ui:define>
 		

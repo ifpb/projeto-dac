@@ -22,4 +22,19 @@
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>login.xhtml</welcome-file>
+    </welcome-file-list>
+
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>br.edu.ifpb.dac.filter.LoginFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/restricted/*</url-pattern>
+    </filter-mapping>
+
 </web-app>
