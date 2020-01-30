@@ -34,6 +34,7 @@
 							<groupId>br.edu.ifpb.dac</groupId>
 							<artifactId>ProjetoDACWeb</artifactId>
 							<contextRoot>/</contextRoot>
+							<unpack>true</unpack>
 						</webModule>
 					</modules>
 				</configuration>
