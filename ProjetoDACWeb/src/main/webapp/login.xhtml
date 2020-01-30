@@ -17,15 +17,15 @@
 		
 			<h:panelGrid columns="3">
 			
-			<h:outputLabel value="Login" />
-			<h:inputText id="login" value="#{loginAlunoBean.matricula}" />
-			<h:message for="login" />
+			<h:outputLabel value="matricula" />
+			<h:inputText id="matricula" value="#{loginUsuarioBean.matricula}" />
+			<h:message for="matricula" />
 			
 			<h:outputLabel value="Senha" />
-			<h:inputSecret id="senha" value="#{loginAlunoBean.senha}" />
+			<h:inputSecret id="senha" value="#{loginUsuarioBean.senha}" />
 			<h:message for="senha" />
 			
-			<h:commandButton value="Enviar" action="#{loginAlunoBean.efetuarLogin}"></h:commandButton>
+			<h:commandButton value="Enviar" action="#{loginUsuarioBean.efetuarLogin(loginUsuarioBean.matricula)}"></h:commandButton>
 			
 			</h:panelGrid>
 		

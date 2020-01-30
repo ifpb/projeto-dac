@@ -26,7 +26,7 @@
         }
     </style>
     <div id="topo">
-        <h:link outcome="index.xhtml"><h:graphicImage name="logo.png" library="imagens" width="50px" height="50px"/></h:link>
+
     </div>
     <center>
         <h3><h:outputLabel  value="Welcome to the TCC Themes Sharing System - IFPB Campus Cajazeiras"/></h3>
@@ -36,20 +36,20 @@
 
                 <h:form>
                     <div class="form-group">
-                        <h5><h:outputLabel for="name" value="What kind of user would you like to sign in?"/></h5>
-                        <h:inputText id="name" value="" class="form-control">
-                            <f:passThroughAttribute name="placeholder" value="User"/>
+                        <h5><h:outputLabel for="matricula" value="What kind of user would you like to sign in?"/></h5>
+                        <h:inputText id="matricula" value="#{loginUsuarioBean.matricula}" class="form-control">
+                            <f:passThroughAttribute name="placeholder" value="Matricula"/>
                         </h:inputText>
-                        <h:inputText id="password" value="" class="form-control" placeholder="senha">
-                            <f:passThroughAttribute name="placeholder" value="Password"/>
-                        </h:inputText>
+                        <h:inputSecret id="senha" value="#{loginUsuarioBean.senha}" class="form-control" placeholder="senha">
+                            <f:passThroughAttribute name="placeholder" value="Senha"/>
+                        </h:inputSecret>
 
                     </div>
-                    <h:commandButton value="Join now" class="btn btn-primary grande">
+                    <h:commandButton value="Join now" action="#{loginUsuarioBean.efetuarLogin(loginUsuarioBean.matricula)}" class="btn btn-primary grande">
 
                     </h:commandButton>
                 </h:form>
-                <h4 style="color: grey">Don't have an account yet? <h:link>Create one</h:link></h4>
+                <h4 style="color: grey">Don't have an account yet? <h:link outcome="/cadastro.xhtml">Create one</h:link></h4>
             </div>
 
     <div id="rodape">

@@ -43,36 +43,36 @@
             <f:ajax execute="@this" render="@form"/>
         </h:selectOneRadio>
 
-        <h:panelGroup id="inputAluno" value="#{clienteMB.tipoPessoa}" rendered="#{clienteMB.tipoPessoa == 'ALUNO'}">
+        <h:panelGroup id="inputAluno"  value="#{clienteMB.tipoPessoa}" rendered="#{clienteMB.tipoPessoa == 'ALUNO'}">
 
            <div class="form-group" >
-                <h:outputLabel for="emailAluno" value="Endereço de Email do aluno:"/>
+                <h:outputLabel for="emailAluno" value="Endereço de Email:"/>
                 <h:inputText id="emailAluno" class="form-control" value="#{cadastroController.aluno.email}" required="true"
                              requiredMessage="Campo obrigatório">
-                    <f:passThroughAttribute name="placeholder" value="Email"/>
+                    <f:passThroughAttribute name="placeholder" value="Email do aluno"/>
                 </h:inputText>
-                <h:outputLabel for="nomeAluno" value="Nome do aluno:"/>
+                <h:outputLabel for="nomeAluno" value="Nome:"/>
                 <h:inputText id="nomeAluno" class="form-control" value="#{cadastroController.aluno.nome}" required="true"
                              requiredMessage="Campo obrigatório">
-                    <f:passThroughAttribute name="placeholder" value="Nome:"/>
+                    <f:passThroughAttribute name="placeholder" value="Nome do aluno"/>
                 </h:inputText>
-                <h:outputLabel for="matriculaAluno" value="Matricula do aluno:"/>
+                <h:outputLabel for="matriculaAluno" value="Matricula:"/>
                 <h:inputText id="matriculaAluno" class="form-control" value="#{cadastroController.aluno.matricula}" required="true"
                              requiredMessage="Campo obrigatório">
-                    <f:passThroughAttribute name="placeholder" value="Matricula:"/>
+                    <f:passThroughAttribute name="placeholder" value="Matricula do aluno"/>
                 </h:inputText>
 
-                <h:outputLabel for="cursoAluno" value="Curso do aluno:"/>
+                <h:outputLabel for="cursoAluno" value="Curso:"/>
                 <h:selectOneRadio id="cursoAluno" value="#{cadastroController.aluno.curso}">
                     <f:selectItem class="form-check-input" itemValue="ADS" itemLabel="ADS" />
                     <f:selectItem class="form-check-input" itemValue="EngenhariaCivil" itemLabel="Engenharia Civil" />
                     <f:selectItem class="form-check-input" itemValue="EngenhariaControle" itemLabel="Engenharia de controle" />
                 </h:selectOneRadio><br/>
 
-                <h:outputLabel for="senhaAluno" value="Senha do aluno:"/>
+                <h:outputLabel for="senhaAluno" value="Senha:"/>
                 <h:inputSecret id="senhaAluno" class="form-control" value="#{cadastroController.aluno.senha}" required="true"
                                requiredMessage="Campo obrigatório">
-                    <f:passThroughAttribute name="placeholder" value="Senha"/>
+                    <f:passThroughAttribute name="placeholder" value="Senha do aluno"/>
                 </h:inputSecret>
 
             </div>
@@ -85,33 +85,33 @@
            <h:panelGroup id="inputProfessor" value="#{clienteMB.tipoPessoa}" rendered="#{clienteMB.tipoPessoa == 'PROFESSOR'}">
 
                <div class="form-group" >
-                   <h:outputLabel for="emailAluno" value="Endereço de Email do Professor:"/>
+                   <h:outputLabel for="emailAluno" value="Endereço de Email:"/>
                    <h:inputText id="emailProfessor" class="form-control" value="#{cadastroController.professor.email}" required="true"
                                 requiredMessage="Campo obrigatório">
-                       <f:passThroughAttribute name="placeholder" value="Email"/>
+                       <f:passThroughAttribute name="placeholder" value="Email do Professor"/>
                    </h:inputText>
-                   <h:outputLabel for="nomeProfessor" value="Nome do Professor"/>
+                   <h:outputLabel for="nomeProfessor" value="Nome:"/>
                    <h:inputText id="nomeProfessor" class="form-control" value="#{cadastroController.professor.nome}" required="true"
                                 requiredMessage="Campo obrigatório">
-                       <f:passThroughAttribute name="placeholder" value="Nome:"/>
+                       <f:passThroughAttribute name="placeholder" value="Nome do Professor"/>
                    </h:inputText>
-                   <h:outputLabel for="matriculaProfessor" value="Matricula do Professor"/>
+                   <h:outputLabel for="matriculaProfessor" value="Matricula:"/>
                    <h:inputText id="matriculaProfessor" class="form-control" value="#{cadastroController.professor.matricula}" required="true"
                                 requiredMessage="Campo obrigatório">
-                       <f:passThroughAttribute name="placeholder" value="Matricula:"/>
+                       <f:passThroughAttribute name="placeholder" value="Matricula do Professor"/>
                    </h:inputText>
 
-                   <h:outputLabel for="cursoProfessor" value="Curso do Professor"/>
+                   <h:outputLabel for="cursoProfessor" value="Curso:"/>
                    <h:selectOneRadio id="cursoProfessor" value="#{cadastroController.professor.curso}">
                        <f:selectItem class="form-check-input" itemValue="ADS" itemLabel="ADS" />
                        <f:selectItem class="form-check-input" itemValue="EngenhariaCivil" itemLabel="Engenharia Civil" />
                        <f:selectItem class="form-check-input" itemValue="EngenhariaControle" itemLabel="Engenharia de controle" />
                    </h:selectOneRadio><br/>
 
-                   <h:outputLabel for="senhaProfessor" value="Senha do Professor:"/>
+                   <h:outputLabel for="senhaProfessor" value="Senha:"/>
                    <h:inputSecret id="senhaProfessor" class="form-control" value="#{cadastroController.professor.senha}" required="true"
                                   requiredMessage="Campo obrigatório">
-                       <f:passThroughAttribute name="placeholder" value="Senha"/>
+                       <f:passThroughAttribute name="placeholder" value="Senha do Professor"/>
                    </h:inputSecret>
 
                </div>
@@ -123,20 +123,6 @@
 
 </div>
 
-
-<!--    <div id="rodape">-->
-<!--        <hr style="background-color: #D3D1D1; height: 1px;"></hr>-->
-<!--        <div class="row">-->
-<!--            <div class="col-lg-12">-->
-<!--                <div class="col-md-8">-->
-<!--                    <h:commandLink class="footer" href="#">IFPB</h:commandLink>-->
-<!--                </div>-->
-<!--                <div class="col-md-4">-->
-<!--                    <p class="muted pull-right">© Todos os direitos reservados</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

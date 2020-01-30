@@ -1,6 +1,6 @@
 package br.edu.ifpb.dac.filter;
 
-import br.edu.ifpb.dac.web.LoginAlunoBean;
+import br.edu.ifpb.dac.web.LoginUsuarioBean;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class LoginFilter implements Filter{
 
     @Inject
-    LoginAlunoBean alunoBean;
+    LoginUsuarioBean alunoBean;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -23,13 +23,17 @@ public class LoginFilter implements Filter{
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
-        String url = req.getRequestURL().toString();
-        System.out.println(url);
-        if (url.contains("restricted") && alunoBean.getAlunoLogado() ==null){
-            res.sendRedirect(req.getServletContext().getContextPath()+"/login.xhtml");
+        HttpSession session = (HttpSession)req.getSession();
+
+        if(session.getAttribute("matricula")==null){
+            res.sendRedirect(req.getContextPath() + "/paglogin.xhtml");
+
         }else {
-            chain.doFilter(request, response);
+
+
+            chain.doFilter(request,response);
         }
+
     }
 
     @Override

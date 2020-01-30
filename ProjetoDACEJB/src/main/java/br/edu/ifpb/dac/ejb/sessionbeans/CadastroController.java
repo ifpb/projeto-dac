@@ -19,8 +19,6 @@ public class CadastroController {
     private Professor professor = new Professor();
 
 
-
-
     @Inject
     AlunoDao alunoDao;
 
