@@ -28,13 +28,12 @@ public class CadastroController {
 
     public String CadastrarUsuario(){
         alunoDao.salvar(aluno);
-        return "paglogin.xhmtl";
+        return "login.xhmtl";
     }
     public String CadastrarProfessor(){
         professorDao.salvar(professor);
-        return "paglogin.xhmtl";
+        return "login.xhmtl";
     }
-
 
 
     public Aluno getAluno() {

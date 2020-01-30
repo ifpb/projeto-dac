@@ -26,11 +26,9 @@ public class LoginFilter implements Filter{
         HttpSession session = (HttpSession)req.getSession();
 
         if(session.getAttribute("matricula")==null){
-            res.sendRedirect(req.getContextPath() + "/paglogin.xhtml");
+            res.sendRedirect(req.getContextPath() + "/login.xhtml");
 
         }else {
-
-
             chain.doFilter(request,response);
         }
 

@@ -43,27 +43,27 @@ public class LoginUsuarioBean implements Serializable {
                 alunoLogado = autenticacaoServiceAluno.login(matricula, senha);
             } catch (AutenticacaoExcecao e) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula ou senha inválidos"));
-                return "/paglogin?faces-redirect=true";
+                return "/login?faces-redirect=true";
             }
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
             session.setAttribute("matricula",matricula);
-            return "/restricted/home?faces-redirect=true";
+            return "/restricted/indexaluno?faces-redirect=true";
         }else {
             try {
                 professorLogado = autenticacaoServiceProfessor.login(matricula, senha);
             } catch (AutenticacaoExcecao e) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula ou senha inválidos"));
-                return "/paglogin?faces-redirect=true";
+                return "/login?faces-redirect=true";
             }
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
             session.setAttribute("matricula",matricula);
-            return "/restricted/hprofessor?faces-redirect=true";
+            return "/restricted/indexprofessor?faces-redirect=true";
         }
     }
 
     public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "/paglogin?faces-redirect=true";
+        return "/login?faces-redirect=true";
     }
 
 
@@ -86,6 +86,7 @@ public class LoginUsuarioBean implements Serializable {
     public Aluno getAlunoLogado() {
         return alunoLogado;
     }
+
 
 
 }

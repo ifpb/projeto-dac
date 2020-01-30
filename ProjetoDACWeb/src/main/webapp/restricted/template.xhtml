@@ -21,36 +21,30 @@
 </h:head>
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top" id="topo" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <h:form>
-                <h:link outcome="index.xhtml"><h:graphicImage name="logo.png" library="imagens" width="50px" height="50px"/></h:link>
-            </h:form>
-        </div>
-        <div class="navbar-collapse collapse">
-            <div class="row" style="padding-top: 10px;">
-                <h:form>
-                    <h:commandLink value="Logout" action="#" styleClass="btn btn-danger navbar-right" role="button"/>
+            <div id="topo"  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <h4 class="infocabecalho">Página Inicial - Seja bem-vindo #{loginUsuarioBean.matricula}</h4>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="row" style="padding-top: 10px;">
+                            <h:form>
+                                <h:commandLink value="Logout" action="#{loginUsuarioBean.logout}" styleClass="btn btn-danger navbar-right" role="button"/>
 
-                    <h:commandLink value="Editar Perfil" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
+                                <h:commandLink value="Editar Perfil" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
 
-                    <h:commandLink value="Solicitações" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
+                                <h:commandLink value="Solicitações" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
 
-                    <h:commandLink value="Temas" action="#" styleClass="btn btn-primary navbar-right offset " role="button" style="margin-right: 5px;"/>
-                </h:form>
+                                <h:commandLink value="Temas" action="#" styleClass="btn btn-primary navbar-right offset " role="button" style="margin-right: 5px;"/>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
+
 
 <!--conteúdo-->
 
-<div id="rodape">
-    <hr style="background-color: #D3D1D1; height: 1px;"></hr>
-    <h:commandLink class="footer" href="#">IFPB</h:commandLink>
-    <p class="muted pull-right">© Todos os direitos reservados</p>
-</div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

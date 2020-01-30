@@ -32,7 +32,7 @@ public class LoginBean implements Serializable {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Login ou senha inválidos"));
 			return "";
 		}
-		return "home.xhtml";
+		return "indexaluno.xhtml";
 	}
 
 	public String getLogin() {
