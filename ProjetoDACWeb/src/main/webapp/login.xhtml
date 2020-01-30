@@ -37,17 +37,17 @@
                 <h:form>
                     <div class="form-group">
                         <h5><h:outputLabel for="matricula" value="What kind of user would you like to sign in?"/></h5>
-                        <h:inputText id="matricula" value="#{loginUsuarioBean.matricula}" class="form-control">
+                        <h:inputText id="matricula" value="#{loginUsuarioBean.matricula}" class="form-control" required="true" requiredMessage="Campo matricula em branco!">
                             <f:passThroughAttribute name="placeholder" value="Registration"/>
                         </h:inputText>
-                        <h:inputSecret id="senha" value="#{loginUsuarioBean.senha}" class="form-control" placeholder="senha">
+                        <h:inputSecret id="senha" value="#{loginUsuarioBean.senha}" class="form-control" placeholder="senha" required="true" requiredMessage="Campo senha em branco!">
                             <f:passThroughAttribute name="placeholder" value="Password"/>
                         </h:inputSecret>
+                        <h:message for="matricula" styleClass="erro" /><br/>
+                        <h:message for="senha" styleClass="erro" />
 
                     </div>
-                    <h:commandButton value="Join now" action="#{loginUsuarioBean.efetuarLogin(loginUsuarioBean.matricula)}" class="btn btn-primary grande">
-
-                    </h:commandButton>
+                    <h:commandButton value="Join now" action="#{loginUsuarioBean.efetuarLogin(loginUsuarioBean.matricula)}" class="btn btn-primary grande"> </h:commandButton>
                 </h:form>
                 <h4 style="color: grey">Don't have an account yet? <h:link outcome="/cadastro.xhtml">Create one</h:link></h4>
             </div>
