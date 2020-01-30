@@ -33,12 +33,16 @@ public class LoginUsuarioBean implements Serializable {
 
     private String senha;
 
+    private String nomeAluno;
+
+    private String nomeProfessor;
+
     private Aluno alunoLogado;
 
     private Professor professorLogado;
 
     public String efetuarLogin(String matricula) {
-        if (matricula.length()==3){
+        if (matricula.length()==12){
             try {
                 alunoLogado = autenticacaoServiceAluno.login(matricula, senha);
             } catch (AutenticacaoExcecao e) {
@@ -59,6 +63,16 @@ public class LoginUsuarioBean implements Serializable {
             session.setAttribute("matricula",matricula);
             return "/restricted/indexprofessor?faces-redirect=true";
         }
+    }
+
+    public String getNomeALuno(){
+       nomeAluno = alunoLogado.getNome();
+       return nomeAluno;
+    }
+
+    public String getNomeProfessor(){
+        nomeProfessor = professorLogado.getNome();
+        return nomeProfessor;
     }
 
     public String logout() {
