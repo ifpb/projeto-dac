@@ -3,24 +3,46 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="../WEB-INF/template.xhtml">
+    <ui:define name="infoCabecalho">Temas</ui:define>
     <ui:define name="principal">
         <div class="container">
-            <h3>Temas</h3>
-            <h:form styleClass="container">
-                <h5>Adicionar Tema</h5>
+            <h:form styleClass="card">
+                <h5>Adicionar Tema
+                </h5>
                 <div class="form-group">
                     <h:outputLabel value="Título" for="tituloTema"/>
-                    <h:inputText id="tituloTema" styleClass="form-control"/>
+                    <h:inputText id="tituloTema" styleClass="form-control" value="#{temaController.tema.titulo}"/>
                 </div>
                 <div class="form-group">
                     <h:outputLabel value="Título" for="tituloTema"/>
-                    <h:inputTextarea id="descricaoTema" styleClass="form-control"/>
+                    <h:inputTextarea id="descricaoTema" styleClass="form-control" value="#{temaController.tema.descricao}"/>
                 </div>
-                <h:commandButton value="Adicionar Tema" action="#" styleClass="btn btn-primary navbar-right offset" role="button" />
+                <h:commandButton value="Adicionar Tema" action="#{temaController.salvar()}" styleClass="btn btn-primary navbar-right offset" role="button" />
             </h:form>
             <hr/>
             <div class="container">
+                <h:dataTable styleClass="table" binding="#{temaController.dataTable}"
+                             value="#{temaController.buscarTodosOsTemas()}" var="tema">
+                    <h:column  scope="col">
+                        <f:facet name="header">ID</f:facet>
+                        #{tema.id}
+                    </h:column>
 
+                    <h:column scope="col">
+                        <f:facet name="header">Titulo</f:facet>
+                        #{tema.titulo}
+                    </h:column>
+
+                    <h:column scope="col">
+                        <f:facet name="header">Texto</f:facet>
+                        #{tema.descricao}
+                    </h:column>
+
+                    <h:column scope="col">
+                        <f:facet name="header">Disponível</f:facet>
+                        #{tema.disponivel}
+                    </h:column>
+                </h:dataTable>
             </div>
         </div>
     </ui:define>
