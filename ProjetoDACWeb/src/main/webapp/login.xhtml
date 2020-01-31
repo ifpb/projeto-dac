@@ -40,6 +40,7 @@
                         <h:inputText id="matricula" value="#{loginUsuarioBean.matricula}" class="form-control" required="true" requiredMessage="Campo matricula em branco!">
                             <f:passThroughAttribute name="placeholder" value="Matrícula"/>
                         </h:inputText>
+                        <br/>
                         <h:inputSecret id="senha" value="#{loginUsuarioBean.senha}" class="form-control" placeholder="senha" required="true" requiredMessage="Campo senha em branco!">
                             <f:passThroughAttribute name="placeholder" value="Senha"/>
                         </h:inputSecret>
@@ -49,7 +50,7 @@
                     </div>
                     <h:commandButton value="Entrar" action="#{loginUsuarioBean.efetuarLogin(loginUsuarioBean.matricula)}" class="btn btn-primary grande"> </h:commandButton>
                 </h:form>
-                <h4 style="color: grey">Não tem uma conta ainda? Cadastra-se <h:link outcome="/cadastro.xhtml">Create one</h:link></h4>
+                <h4 style="color: grey">Não tem uma conta ainda? Cadastra-se <h:link outcome="/cadastro.xhtml">Crie uma</h:link></h4>
             </div>
 
     <div id="rodape">
