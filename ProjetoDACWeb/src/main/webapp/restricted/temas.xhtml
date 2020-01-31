@@ -40,7 +40,14 @@
 
                     <h:column scope="col">
                         <f:facet name="header">Disponível</f:facet>
-                        #{tema.disponivel}
+                        <h:outputLabel rendered="#{tema.disponivel}" value="Sim"/>
+                        <h:outputLabel rendered="#{!tema.disponivel}" value="Não"/>
+                    </h:column>
+
+                    <h:column scope="col">
+                        <f:facet name="header">Opções</f:facet>
+                        <h:commandButton styleClass="btn btn-primary material-icons" value="edit" role="button" action="#{temaController.editaTema()}"/>
+                        <h:commandButton styleClass="btn btn-primary material-icons" value="delete" role="button" action="#{temaController.excluiTema()}"/>
                     </h:column>
                 </h:dataTable>
             </div>
