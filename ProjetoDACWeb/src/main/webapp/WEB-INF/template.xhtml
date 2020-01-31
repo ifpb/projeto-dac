@@ -21,9 +21,26 @@
 	</h:head>
 	<h:body>
 
-		<ui:insert name="cabecalho">
-			<h1>Projeto DAC</h1>
-		</ui:insert>
+			<div id="topo"  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<h4 class="infocabecalho">Página Inicial - Seja bem-vindo <ui:insert name="tipoUsuario"></ui:insert></h4>
+					</div>
+					<div class="navbar-collapse collapse">
+						<div class="row" style="padding-top: 10px;">
+							<h:form>
+								<h:commandLink value="Logout" action="#{loginUsuarioBean.logout}" styleClass="btn btn-danger navbar-right" role="button"/>
+
+								<h:commandLink value="Editar Perfil" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
+
+								<h:commandLink value="Solicitações" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
+
+								<h:commandLink value="Temas" action="#" styleClass="btn btn-primary navbar-right offset " role="button" style="margin-right: 5px;"/>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
 
 		<ui:insert name="menu"></ui:insert>
 
