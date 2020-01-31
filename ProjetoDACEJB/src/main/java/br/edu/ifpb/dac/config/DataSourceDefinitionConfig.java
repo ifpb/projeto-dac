@@ -9,9 +9,9 @@ import javax.ejb.Startup;
 @DataSourceDefinition(
   name="java:global/jdbc/DACDataSource",
   className="org.postgresql.Driver",
-  url="jdbc:postgresql://localhost:5432/projeto-dac",
-  databaseName="projeto-dac",
+  url="jdbc:postgresql://localhost:5432/dac",
+  databaseName="dac",
   user="postgres",
-  password="secret")
+  password="1234")
 public class DataSourceDefinitionConfig {
 }

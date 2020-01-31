@@ -38,13 +38,6 @@ public class ProfessorController implements Serializable {
         }
     }
 
-    /*                                              Criar esse método no DAO de professor
-    public String remover(Professor professor){
-        this.professorDAO.remover(professor);
-        return null;
-    }
-     */
-
     public String atualizar(Professor professor){
         this.professorDao.atualizar(professor);
         return "??????"; // Definir para onde será redirecionado
