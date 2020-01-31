@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
 <f:view>
 	<h:head>
 		<title>Página Inicial</title>
@@ -20,31 +20,36 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
 	</h:head>
 	<h:body>
+		<div class="">
 
-			<div id="topo"  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<h4 class="infocabecalho">Página Inicial - Seja bem-vindo <ui:insert name="tipoUsuario"></ui:insert></h4>
-					</div>
-					<div class="navbar-collapse collapse">
-						<div class="row" style="padding-top: 10px;">
-							<h:form>
-								<h:commandLink value="Logout" action="#{loginUsuarioBean.logout}" styleClass="btn btn-danger navbar-right" role="button"/>
+		</div>
+		<div id="topo"  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<h4 class="infocabecalho">Página Inicial - Seja bem-vindo <ui:insert name="tipoUsuario"></ui:insert></h4>
+				</div>
+				<div class="navbar-collapse collapse">
+					<div class="row" style="padding-top: 10px;">
+						<h:form>
+							<h:commandLink value="Logout" action="#{loginUsuarioBean.logout}" styleClass="btn btn-danger navbar-right" role="button"/>
 
-								<h:commandLink value="Editar Perfil" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
+							<h:commandLink value="Editar Perfil" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
 
-								<h:commandLink value="Solicitações" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
+							<h:commandLink value="Solicitações" action="#" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
 
-								<h:commandLink value="Temas" action="#" styleClass="btn btn-primary navbar-right offset " role="button" style="margin-right: 5px;"/>
-							</h:form>
-						</div>
+							<h:commandLink value="Temas" action="#{professorController.goPageTemas}" styleClass="btn btn-primary navbar-right offset " role="button" style="margin-right: 5px;"/>
+						</h:form>
 					</div>
 				</div>
 			</div>
+		</div>
 
 		<ui:insert name="menu"></ui:insert>
 
+		<div>
 		<ui:insert name="principal"></ui:insert>
+		</div>
+
 
 		<ui:insert name="rodape">
 			<p>Projeto DAC - IFPB 2019</p>
