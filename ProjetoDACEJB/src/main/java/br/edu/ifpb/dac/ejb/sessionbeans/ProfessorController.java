@@ -38,6 +38,14 @@ public class ProfessorController implements Serializable {
         }
     }
 
+    public void goPageSolicitacoes(){
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("solicitacoes.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public String atualizar(Professor professor){
         this.professorDao.atualizar(professor);
         return "??????"; // Definir para onde será redirecionado
