@@ -4,8 +4,10 @@ import br.edu.ifpb.dac.ejb.dao.ProfessorDao;
 import br.edu.ifpb.dac.ejb.entidades.Professor;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -26,6 +28,14 @@ public class ProfessorController implements Serializable {
     public String salvar(Professor professor){
         professorDao.salvar(professor);
         return null;
+    }
+
+    public void goPageTemas(){
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("temas.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /*                                              Criar esse método no DAO de professor
