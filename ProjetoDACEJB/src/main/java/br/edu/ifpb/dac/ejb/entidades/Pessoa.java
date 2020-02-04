@@ -23,7 +23,7 @@ public abstract class Pessoa implements Serializable {
     @Column(length = 20)
     private String senha;
 
-    @Column(length = 20)
+    @Column(length = 60)
     private String curso;
 
     public Long getId() {
