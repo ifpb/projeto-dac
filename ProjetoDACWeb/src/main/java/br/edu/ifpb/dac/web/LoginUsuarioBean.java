@@ -46,7 +46,7 @@ public class LoginUsuarioBean implements Serializable {
             try {
                 alunoLogado = autenticacaoServiceAluno.login(matricula, senha);
             } catch (AutenticacaoExcecao e) {
-                FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Matrícula ou senha do usuário inválidos!", "Detalhe");
+                FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Matrícula ou senha do usuário inválidos!", "Detalhe");
                 FacesContext.getCurrentInstance().addMessage("msg", facesMsg);
                 return null;
             }
