@@ -14,6 +14,10 @@ public class Professor extends Pessoa implements Serializable {
         return disponivel;
     }
 
+    public Professor(){
+        super();
+    }
+
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
