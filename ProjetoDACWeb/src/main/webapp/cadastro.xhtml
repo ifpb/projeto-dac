@@ -82,9 +82,11 @@
                 </h:selectOneRadio><br/>
 
                 <h:outputLabel for="senhaAluno" value="Password:"/>
+                <h:outputLabel for="matriculaProfessor" value="  *campo com pelo menos 4 digitos" styleClass="erro"/><br/>
                 <h:inputSecret id="senhaAluno" class="form-control" value="#{cadastroController.aluno.senha}" required="true"
                                requiredMessage="Campo obrigatório!">
                     <h:message for="senhaAluno" styleClass="erro" />
+                    <f:validateLength minimum="4" maximum="256"/>
                     <f:passThroughAttribute name="placeholder" value="Password"/>
                 </h:inputSecret>
 
@@ -130,9 +132,11 @@
                    </h:selectOneRadio><br/>
 
                    <h:outputLabel for="senhaProfessor" value="Password:"/>
+                   <h:outputLabel for="matriculaProfessor" value="  *campo com pelo menos 4 digitos" styleClass="erro"/><br/>
                    <h:inputSecret id="senhaProfessor" class="form-control" value="#{cadastroController.professor.senha}" required="true"
                                   requiredMessage="Campo obrigatório!">
                        <h:message for="senhaProfessor" styleClass="erro" />
+                       <f:validateLength minimum="4" maximum="256"/>
                        <f:passThroughAttribute name="placeholder" value="Password"/>
                    </h:inputSecret>
 

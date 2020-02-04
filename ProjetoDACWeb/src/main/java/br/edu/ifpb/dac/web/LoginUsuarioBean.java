@@ -46,8 +46,9 @@ public class LoginUsuarioBean implements Serializable {
             try {
                 alunoLogado = autenticacaoServiceAluno.login(matricula, senha);
             } catch (AutenticacaoExcecao e) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula ou senha inválidos"));
-                return "/login?faces-redirect=true";
+                FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Matrícula ou senha do usuário inválidos!", "Detalhe");
+                FacesContext.getCurrentInstance().addMessage("msg", facesMsg);
+                return null;
             }
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
             session.setAttribute("matricula",matricula);
@@ -56,8 +57,9 @@ public class LoginUsuarioBean implements Serializable {
             try {
                 professorLogado = autenticacaoServiceProfessor.login(matricula, senha);
             } catch (AutenticacaoExcecao e) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Matricula ou senha inválidos"));
-                return "/login?faces-redirect=true";
+                FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Matrícula ou senha do usuário inválidos!", "Detalhe");
+                FacesContext.getCurrentInstance().addMessage("msg", facesMsg);
+                return null;
             }
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
             session.setAttribute("matricula",matricula);
