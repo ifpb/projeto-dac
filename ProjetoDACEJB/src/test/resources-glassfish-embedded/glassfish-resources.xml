@@ -4,12 +4,12 @@
         "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
 <resources>
     <jdbc-resource pool-name="ArquillianEmbeddedPostgreSQLPool"
-                   jndi-name="jdbc/DACDataSource"/>
+                   jndi-name="jdbc/dac"/>
     <jdbc-connection-pool name="ArquillianEmbeddedPostgreSQLPool"
     					  res-type="javax.sql.DataSource"
                           datasource-classname="org.postgresql.ds.PGSimpleDataSource">
         <property name="user" value="postgres"/>
-        <property name="password" value="postgres"/>
-        <property name="url" value="jdbc:postgresql://localhost:5432/projeto-dac"/>
+        <property name="password" value="123"/> <!--Altere aqui a sua senha do banco-->
+        <property name="url" value="jdbc:postgresql://localhost:5432/dac"/>
     </jdbc-connection-pool>
 </resources>
