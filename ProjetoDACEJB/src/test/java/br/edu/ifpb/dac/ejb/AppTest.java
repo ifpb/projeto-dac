@@ -32,7 +32,7 @@ public class AppTest {
 	AlunoDao prfessorDAO;
 
 	@Inject
-	ProfessorDao ProfessorDAO;
+	ProfessorDao professorDAO;
 
 	@Deployment
 	public static JavaArchive criarArquivoTeste() {
@@ -71,6 +71,42 @@ public class AppTest {
 		prfessorDAO.salvar(aluno1);
 		prfessorDAO.salvar(aluno2);
 		prfessorDAO.salvar(aluno3);
+
+	}
+
+	@Test
+	@InSequence(2)
+	public void testeSalvarProfessor() {
+
+		Professor professor2 = new Professor();
+		professor2.setNome("Diego Pessoa");
+		professor2.setMatricula("20001212");
+		professor2.setEmail("diegopessoa@gmail.com");
+		professor2.setCurso("ADS");
+		professor2.setSenha("123");
+		professor2.setDisponivel(true);
+
+
+		Professor professor1 = new Professor();
+		professor1.setNome("Fabio Andrade");
+		professor1.setMatricula("20002323");
+		professor1.setEmail("fabioandrade@gmail.com");
+		professor1.setCurso("ADS");
+		professor1.setSenha("123");
+		professor1.setDisponivel(true);
+
+
+		Professor professor3 = new Professor();
+		professor3.setNome("Fabio Bala");
+		professor3.setMatricula("20003657");
+		professor3.setEmail("fabiobala@gmail.com");
+		professor3.setCurso("ADS");
+		professor3.setSenha("123");
+		professor3.setDisponivel(false);
+
+		professorDAO.salvar(professor1);
+		professorDAO.salvar(professor2);
+		professorDAO.salvar(professor3);
 
 	}
 }
