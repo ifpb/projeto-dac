@@ -29,7 +29,7 @@ public class AppTest {
 	}
 
 	@Inject
-	AlunoDao prfessorDAO;
+	AlunoDao alunoDAO;
 
 	@Inject
 	ProfessorDao professorDAO;
@@ -68,9 +68,9 @@ public class AppTest {
 		aluno3.setCurso("ADS");
 		aluno3.setSenha("123");
 
-		prfessorDAO.salvar(aluno1);
-		prfessorDAO.salvar(aluno2);
-		prfessorDAO.salvar(aluno3);
+		alunoDAO.salvar(aluno1);
+		alunoDAO.salvar(aluno2);
+		alunoDAO.salvar(aluno3);
 
 	}
 
