@@ -1,11 +1,10 @@
-package br.edu.ifpb.dac.ejb.sessionbeans;
+package br.edu.ifpb.dac.controllers;
 
 
 import br.edu.ifpb.dac.ejb.dao.TemaDao;
 import br.edu.ifpb.dac.ejb.entidades.Tema;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.component.html.HtmlDataTable;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -18,8 +17,6 @@ public class TemaController implements Serializable {
 
     private Tema tema;
 
-    private HtmlDataTable dataTable;
-
     @Inject
     private TemaDao temaDao;
 
@@ -27,7 +24,7 @@ public class TemaController implements Serializable {
         return temaDao.buscarTodos();
     }
 
-    public String salvar(){
+    public String salvar(Tema tema){
         temaDao.salvar(tema);
         return null;
     }
@@ -54,13 +51,5 @@ public class TemaController implements Serializable {
 
     public void setTema(Tema tema) {
         this.tema = tema;
-    }
-
-    public HtmlDataTable getDataTable() {
-        return dataTable;
-    }
-
-    public void setDataTable(HtmlDataTable dataTable) {
-        this.dataTable = dataTable;
     }
 }

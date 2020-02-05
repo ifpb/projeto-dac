@@ -1,13 +1,11 @@
-package br.edu.ifpb.dac.ejb.sessionbeans;
+package br.edu.ifpb.dac.controllers;
 
 import br.edu.ifpb.dac.ejb.dao.ProfessorDao;
 import br.edu.ifpb.dac.ejb.entidades.Professor;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -30,21 +28,12 @@ public class ProfessorController implements Serializable {
         return null;
     }
 
-    public void goPageTemas(){
-        try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("temas.xhtml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    /*                                              Criar esse método no DAO de professor
+    public String remover(Professor professor){
+        this.professorDAO.remover(professor);
+        return null;
     }
-
-    public void goPageSolicitacoes(){
-        try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("solicitacoes.xhtml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+     */
 
     public String atualizar(Professor professor){
         this.professorDao.atualizar(professor);

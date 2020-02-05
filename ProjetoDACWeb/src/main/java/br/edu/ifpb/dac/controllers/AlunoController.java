@@ -1,7 +1,9 @@
-package br.edu.ifpb.dac.ejb.sessionbeans;
+package br.edu.ifpb.dac.controllers;
 
 import br.edu.ifpb.dac.ejb.dao.AlunoDao;
 import br.edu.ifpb.dac.ejb.entidades.Aluno;
+import br.edu.ifpb.dac.ejb.entidades.Inscricao;
+import br.edu.ifpb.dac.controllers.InscricaoController;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -15,9 +17,17 @@ import java.util.List;
 public class AlunoController implements Serializable {
 
     private Aluno aluno;
+    
+    @Inject
+    private InscricaoController inscricaoService;
 
     @Inject
     private AlunoDao alunoDAO;
+ 
+    
+    public void fazerInscricao(Inscricao inscricao){
+    	inscricaoService.salvar(inscricao);
+    }
 
     public List<Aluno> buscarTodosOsAlunos(){
         return alunoDAO.buscarTodos();

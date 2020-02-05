@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.ejb.sessionbeans;
+package br.edu.ifpb.dac.controllers;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
