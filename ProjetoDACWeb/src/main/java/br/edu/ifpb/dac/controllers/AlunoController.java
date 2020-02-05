@@ -3,12 +3,14 @@ package br.edu.ifpb.dac.controllers;
 import br.edu.ifpb.dac.ejb.dao.AlunoDao;
 import br.edu.ifpb.dac.ejb.entidades.Aluno;
 import br.edu.ifpb.dac.ejb.entidades.Inscricao;
+import br.edu.ifpb.dac.web.LoginUsuarioBean;
 import br.edu.ifpb.dac.controllers.InscricaoController;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 
@@ -17,12 +19,28 @@ import java.util.List;
 public class AlunoController implements Serializable {
 
     private Aluno aluno;
+	private Inscricao inscricao;    
     
     @Inject
     private InscricaoController inscricaoService;
 
     @Inject
     private AlunoDao alunoDAO;
+    
+    
+    
+    @Inject 
+    private LoginUsuarioBean loginService;
+    
+    
+    public void inscrever(){
+    	this.inscricao = new Inscricao();
+    	this.inscricao.setAluno(loginService.getAlunoLogado());
+    	this.inscricao.setDataInscricao(new Date());
+        //falta setar os demais atributos de inscricao
+
+    	inscricaoService.salvar(this.inscricao);
+    }    
  
     
     public void fazerInscricao(Inscricao inscricao){
@@ -61,4 +79,16 @@ public class AlunoController implements Serializable {
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
+
+
+	public Inscricao getInscricao() {
+		return inscricao;
+	}
+
+
+	public void setInscricao(Inscricao inscricao) {
+		this.inscricao = inscricao;
+	}
+    
+    
 }
