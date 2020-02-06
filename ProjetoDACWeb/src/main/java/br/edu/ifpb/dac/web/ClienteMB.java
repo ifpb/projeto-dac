@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.controllers;
+package br.edu.ifpb.dac.web;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;

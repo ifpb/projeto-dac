@@ -4,6 +4,8 @@ import br.edu.ifpb.dac.ejb.dao.ProfessorDao;
 import br.edu.ifpb.dac.ejb.entidades.Professor;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -14,7 +16,7 @@ import java.util.List;
 @Named
 public class ProfessorController implements Serializable {
 
-    private Professor professor;
+    private Professor professor = new Professor();
 
     @Inject
     private ProfessorDao professorDao;
@@ -23,9 +25,15 @@ public class ProfessorController implements Serializable {
         return professorDao.buscarTodos();
     }
 
-    public String salvar(Professor professor){
-        professorDao.salvar(professor);
-        return null;
+    public String CadastrarProfessor(){
+        try {
+            professorDao.salvar(professor);
+            return "login.xhtml";
+        }catch (Exception e){
+            FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário existente", "Detalhe");
+            FacesContext.getCurrentInstance().addMessage("msg", facesMsg);
+            return null;
+        }
     }
 
     /*                                              Criar esse método no DAO de professor

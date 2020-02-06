@@ -11,8 +11,6 @@ import java.io.IOException;
 
 public class LoginFilter implements Filter{
 
-    @Inject
-    LoginUsuarioBean alunoBean;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

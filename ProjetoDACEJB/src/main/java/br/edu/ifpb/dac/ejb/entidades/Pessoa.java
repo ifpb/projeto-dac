@@ -14,10 +14,10 @@ public abstract class Pessoa implements Serializable {
     @Column(length = 60)
     private String nome;
 
-    @Column(length = 30)
+    @Column(length = 30, unique = true)
     private String email;
 
-    @Column(length = 12)
+    @Column(length = 12, unique = true)
     private String matricula;
 
     @Column(length = 20)
