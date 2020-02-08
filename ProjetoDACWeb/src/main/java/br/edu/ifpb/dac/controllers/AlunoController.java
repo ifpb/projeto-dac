@@ -37,7 +37,7 @@ public class AlunoController implements Serializable {
     public String CadastrarAluno(){
         try {
             alunoService.cadastrarAluno(aluno);
-            return "login.xhmtl";
+            return "/login?faces-redirect=true";
         }catch (Exception e){
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário existente", "Detalhe");
             FacesContext.getCurrentInstance().addMessage("msg", facesMsg);

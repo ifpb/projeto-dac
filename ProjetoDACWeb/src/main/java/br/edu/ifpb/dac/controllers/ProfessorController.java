@@ -25,7 +25,7 @@ public class ProfessorController implements Serializable {
     public String CadastrarProfessor(){
         try {
             professorService.cadastrarProfessor(professor);
-            return "login.xhtml";
+            return "/login?faces-redirect=true";
         }catch (Exception e){
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário existente", "Detalhe");
             FacesContext.getCurrentInstance().addMessage("msg", facesMsg);
