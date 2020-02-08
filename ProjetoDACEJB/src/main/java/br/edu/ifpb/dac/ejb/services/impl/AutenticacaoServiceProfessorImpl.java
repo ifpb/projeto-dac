@@ -1,8 +1,9 @@
-package br.edu.ifpb.dac.ejb.services;
+package br.edu.ifpb.dac.ejb.services.impl;
 
-import br.edu.ifpb.dac.ejb.dao.ProfessorDao;
-import br.edu.ifpb.dac.ejb.entidades.Aluno;
+import br.edu.ifpb.dac.ejb.dao.interfaces.ProfessorDao;
 import br.edu.ifpb.dac.ejb.entidades.Professor;
+import br.edu.ifpb.dac.ejb.services.Excecao.AutenticacaoExcecao;
+import br.edu.ifpb.dac.ejb.services.inteface.AutenticacaoServiceProfessor;
 
 import javax.ejb.EJB;
 import javax.ejb.Remove;

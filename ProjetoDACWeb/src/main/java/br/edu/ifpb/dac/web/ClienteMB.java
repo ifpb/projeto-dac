@@ -1,17 +1,15 @@
 package br.edu.ifpb.dac.web;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
 @Named("clienteMB")
-@SessionScoped
+@ViewScoped
 public class ClienteMB implements Serializable {
 
-    private  static  final long serialVerstionUID = 1L;
-
     private String tipoPessoa = "ALUNO";
-
 
     public String getTipoPessoa() {
         return tipoPessoa;

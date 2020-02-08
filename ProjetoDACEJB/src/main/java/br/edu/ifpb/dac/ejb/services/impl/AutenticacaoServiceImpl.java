@@ -1,17 +1,17 @@
-package br.edu.ifpb.dac.ejb.services;
+package br.edu.ifpb.dac.ejb.services.impl;
 
 import java.util.Optional;
 import java.util.logging.Logger;
 
 import javax.ejb.EJB;
-import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
-import javax.inject.Inject;
 
-import br.edu.ifpb.dac.ejb.dao.UsuarioDAO;
+import br.edu.ifpb.dac.ejb.dao.implementacoes.UsuarioDAOImpl;
+import br.edu.ifpb.dac.ejb.dao.interfaces.UsuarioDAO;
 import br.edu.ifpb.dac.ejb.entidades.Usuario;
+import br.edu.ifpb.dac.ejb.services.Excecao.AutenticacaoExcecao;
+import br.edu.ifpb.dac.ejb.services.inteface.AutenticacaoService;
 
 @Stateful
 public class AutenticacaoServiceImpl implements AutenticacaoService {

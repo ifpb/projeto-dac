@@ -1,7 +1,7 @@
 package br.edu.ifpb.dac.controllers;
 
 
-import br.edu.ifpb.dac.ejb.dao.TemaDao;
+import br.edu.ifpb.dac.ejb.dao.interfaces.TemaDao;
 import br.edu.ifpb.dac.ejb.entidades.Tema;
 
 import javax.enterprise.context.RequestScoped;

@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.ejb.services;
+package br.edu.ifpb.dac.ejb.services.inteface;
 
 import java.util.Optional;
 
@@ -6,6 +6,7 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 
 import br.edu.ifpb.dac.ejb.entidades.Usuario;
+import br.edu.ifpb.dac.ejb.services.Excecao.AutenticacaoExcecao;
 
 @Local
 @Remote

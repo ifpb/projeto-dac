@@ -1,6 +1,6 @@
 package br.edu.ifpb.dac.controllers;
 
-import br.edu.ifpb.dac.ejb.dao.PeriodoDao;
+import br.edu.ifpb.dac.ejb.dao.interfaces.PeriodoDao;
 import br.edu.ifpb.dac.ejb.entidades.Periodo;
 
 import javax.enterprise.context.RequestScoped;

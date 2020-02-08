@@ -1,6 +1,6 @@
 package br.edu.ifpb.dac.controllers;
 
-import br.edu.ifpb.dac.ejb.dao.PreProjetoDao;
+import br.edu.ifpb.dac.ejb.dao.interfaces.PreProjetoDao;
 import br.edu.ifpb.dac.ejb.entidades.PreProjeto;
 
 import javax.enterprise.context.RequestScoped;

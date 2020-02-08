@@ -6,7 +6,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-import br.edu.ifpb.dac.ejb.services.CalculadoraControllerLocal;
+import br.edu.ifpb.dac.ejb.services.inteface.CalculadoraControllerLocal;
 
 @Named
 @RequestScoped

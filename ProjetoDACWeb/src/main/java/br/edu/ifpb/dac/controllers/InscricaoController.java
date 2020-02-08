@@ -2,7 +2,7 @@ package br.edu.ifpb.dac.controllers;
 
 
 
-import br.edu.ifpb.dac.ejb.dao.InscricaoDao;
+import br.edu.ifpb.dac.ejb.dao.interfaces.InscricaoDao;
 import br.edu.ifpb.dac.ejb.entidades.Inscricao;
 
 import javax.enterprise.context.RequestScoped;

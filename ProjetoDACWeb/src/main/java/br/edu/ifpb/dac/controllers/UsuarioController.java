@@ -1,7 +1,7 @@
 package br.edu.ifpb.dac.controllers;
 
 
-import br.edu.ifpb.dac.ejb.dao.UsuarioDAO;
+import br.edu.ifpb.dac.ejb.dao.interfaces.UsuarioDAO;
 import br.edu.ifpb.dac.ejb.entidades.Usuario;
 
 import javax.enterprise.context.RequestScoped;

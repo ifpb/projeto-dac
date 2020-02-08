@@ -1,13 +1,14 @@
-package br.edu.ifpb.dac.ejb.services;
+package br.edu.ifpb.dac.ejb.services.impl;
 
-import br.edu.ifpb.dac.ejb.dao.AlunoDao;
+import br.edu.ifpb.dac.ejb.dao.interfaces.AlunoDao;
 import br.edu.ifpb.dac.ejb.entidades.Aluno;
+import br.edu.ifpb.dac.ejb.services.Excecao.AutenticacaoExcecao;
+import br.edu.ifpb.dac.ejb.services.inteface.AutenticacaoServiceAluno;
 
 
 import javax.ejb.EJB;
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
-import javax.inject.Inject;
 import java.util.Optional;
 import java.util.logging.Logger;
 

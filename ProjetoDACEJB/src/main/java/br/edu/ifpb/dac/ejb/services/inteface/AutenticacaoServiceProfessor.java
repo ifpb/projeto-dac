@@ -1,6 +1,7 @@
-package br.edu.ifpb.dac.ejb.services;
+package br.edu.ifpb.dac.ejb.services.inteface;
 
 import br.edu.ifpb.dac.ejb.entidades.Professor;
+import br.edu.ifpb.dac.ejb.services.Excecao.AutenticacaoExcecao;
 
 import javax.ejb.Remove;
 import java.util.Optional;

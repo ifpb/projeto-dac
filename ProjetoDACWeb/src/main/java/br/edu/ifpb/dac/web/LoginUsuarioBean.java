@@ -2,9 +2,9 @@ package br.edu.ifpb.dac.web;
 
 import br.edu.ifpb.dac.ejb.entidades.Aluno;
 import br.edu.ifpb.dac.ejb.entidades.Professor;
-import br.edu.ifpb.dac.ejb.services.AutenticacaoExcecao;
-import br.edu.ifpb.dac.ejb.services.AutenticacaoServiceAluno;
-import br.edu.ifpb.dac.ejb.services.AutenticacaoServiceProfessor;
+import br.edu.ifpb.dac.ejb.services.Excecao.AutenticacaoExcecao;
+import br.edu.ifpb.dac.ejb.services.inteface.AutenticacaoServiceAluno;
+import br.edu.ifpb.dac.ejb.services.inteface.AutenticacaoServiceProfessor;
 
 
 import javax.annotation.ManagedBean;
@@ -12,7 +12,6 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 import java.io.Serializable;

@@ -1,7 +1,7 @@
 package br.edu.ifpb.dac.controllers;
 
 
-import br.edu.ifpb.dac.ejb.dao.AvaliacaoDao;
+import br.edu.ifpb.dac.ejb.dao.interfaces.AvaliacaoDao;
 import br.edu.ifpb.dac.ejb.entidades.Avaliacao;
 
 import javax.enterprise.context.RequestScoped;

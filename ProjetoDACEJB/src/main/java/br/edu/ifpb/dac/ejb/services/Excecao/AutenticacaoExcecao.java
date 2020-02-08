@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.ejb.services;
+package br.edu.ifpb.dac.ejb.services.Excecao;
 
 public class AutenticacaoExcecao extends Exception {
 

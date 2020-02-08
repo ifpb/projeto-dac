@@ -4,9 +4,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.swing.JOptionPane;
 
-import br.edu.ifpb.dac.ejb.services.AutenticacaoExcecao;
-import br.edu.ifpb.dac.ejb.services.AutenticacaoService;
-import br.edu.ifpb.dac.ejb.services.CalculadoraControllerRemote;
+import br.edu.ifpb.dac.ejb.services.Excecao.AutenticacaoExcecao;
+import br.edu.ifpb.dac.ejb.services.inteface.AutenticacaoService;
+import br.edu.ifpb.dac.ejb.services.inteface.CalculadoraControllerRemote;
 
 /**
  * Hello world!

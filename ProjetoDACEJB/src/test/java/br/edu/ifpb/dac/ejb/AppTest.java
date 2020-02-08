@@ -2,8 +2,8 @@ package br.edu.ifpb.dac.ejb;
 
 import static org.junit.Assert.assertTrue;
 
-import br.edu.ifpb.dac.ejb.dao.AlunoDao;
-import br.edu.ifpb.dac.ejb.dao.ProfessorDao;
+import br.edu.ifpb.dac.ejb.dao.interfaces.AlunoDao;
+import br.edu.ifpb.dac.ejb.dao.interfaces.ProfessorDao;
 import br.edu.ifpb.dac.ejb.entidades.Aluno;
 import br.edu.ifpb.dac.ejb.entidades.Professor;
 import org.jboss.arquillian.container.test.api.Deployment;

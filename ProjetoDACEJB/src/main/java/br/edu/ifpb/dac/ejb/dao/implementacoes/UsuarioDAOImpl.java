@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.ejb.dao;
+package br.edu.ifpb.dac.ejb.dao.implementacoes;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,28 +10,33 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
+import br.edu.ifpb.dac.ejb.dao.interfaces.UsuarioDAO;
 import br.edu.ifpb.dac.ejb.entidades.Usuario;
 
 @Stateless
-public class UsuarioDAO {
+public class UsuarioDAOImpl implements UsuarioDAO {
 	
 	private static final Logger log = Logger.getLogger(Logger.class.getName());
 	
 	@PersistenceContext(unitName = "dac")
 	EntityManager em;
 
+	@Override
 	public void salvar(Usuario u) {
 		em.persist(u);
 	}
 
+	@Override
 	public void atualizar(Usuario p) {
 		em.merge(p);
 	}
 
+	@Override
 	public Usuario buscar(Long id) {
 		return em.find(Usuario.class, id);
 	}
 	
+	@Override
 	public Optional<Usuario> buscarPorLogin(String login) {
 		Optional<Usuario> usuario = Optional.empty();
 		try {
@@ -42,6 +47,7 @@ public class UsuarioDAO {
 		return usuario;
 	}
 
+	@Override
 	public List<Usuario> buscarTodos() {
 		return em.createQuery("SELECT u FROM Usuario u ORDER BY u.id", Usuario.class).getResultList();
 	}
