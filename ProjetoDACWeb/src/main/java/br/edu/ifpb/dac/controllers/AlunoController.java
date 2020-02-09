@@ -77,11 +77,6 @@ public class AlunoController implements Serializable {
         inscricaoService.salvar(this.inscricao);
     }
 
-    public void fazerInscricao(Inscricao inscricao){
-        inscricaoService.salvar(inscricao);
-    }
-
-
 //getters e setters
 
 

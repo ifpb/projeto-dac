@@ -102,6 +102,9 @@ public class LoginUsuarioBean implements Serializable {
         return alunoLogado;
     }
 
+	public Professor getProfessorLogado() {
+		return professorLogado;
+	}
 
 
 }

@@ -1,7 +1,9 @@
 package br.edu.ifpb.dac.controllers;
 
 import br.edu.ifpb.dac.ejb.entidades.Professor;
+import br.edu.ifpb.dac.ejb.entidades.Tema;
 import br.edu.ifpb.dac.ejb.services.impl.ProfessorService;
+import br.edu.ifpb.dac.web.LoginUsuarioBean;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -18,9 +20,17 @@ import java.util.Optional;
 public class ProfessorController implements Serializable {
 
     private Professor professor = new Professor();
+    
+    private Tema tema = new Tema();
 
     @Inject
     private ProfessorService professorService;
+    
+    @Inject
+    private LoginUsuarioBean loginService;
+    
+    @Inject
+    private TemaController temaService;
 
     public String CadastrarProfessor(){
         try {
@@ -31,6 +41,13 @@ public class ProfessorController implements Serializable {
             FacesContext.getCurrentInstance().addMessage("msg", facesMsg);
             return null;
         }
+    }
+    
+    public String cadastrarTemas() {
+    	this.tema.setProfessor(loginService.getProfessorLogado());
+    	this.tema.setDisponivel(true);
+    	this.temaService.salvar(this.tema);
+    	return null;
     }
 
     public List<Professor> buscarTodosOsProfessores(){

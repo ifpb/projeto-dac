@@ -24,9 +24,8 @@ public class TemaController implements Serializable {
         return temaDao.buscarTodos();
     }
 
-    public String salvar(Tema tema){
+    public void salvar(Tema tema){
         temaDao.salvar(tema);
-        return null;
     }
 
     /*
