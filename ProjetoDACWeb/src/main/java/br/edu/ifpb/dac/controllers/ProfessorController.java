@@ -5,7 +5,7 @@ import br.edu.ifpb.dac.ejb.entidades.Tema;
 import br.edu.ifpb.dac.ejb.services.impl.ProfessorService;
 import br.edu.ifpb.dac.web.LoginUsuarioBean;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-@RequestScoped
+@SessionScoped
 @Named
 public class ProfessorController implements Serializable {
 
@@ -47,6 +47,28 @@ public class ProfessorController implements Serializable {
     	this.tema.setProfessor(loginService.getProfessorLogado());
     	this.tema.setDisponivel(true);
     	this.temaService.salvar(this.tema);
+    	return "temas.xhtml?faces-redirect=true";
+    }
+    
+    //na página temas o botão editar deve acionar esse método
+    //ele salva nesse controlador o tema que vai ser editado.
+    //o usuário é então direcionado para uma página com todas as informações sobre o tema, a página tema.xhtml
+    //onde ele poderá realizar as edições e depois confirmar acionando o método confirmarEdicao
+    public String editarTema(Tema tema){
+    	this.tema = tema;
+    	return "tema.xhtml?faces-redirect=true";
+    }
+    
+    
+    // método que deve ser acionado para confirmar as edições na página tema
+    public String confirmarEdicao(){
+    	this.temaService.atualizar(this.tema);
+    	this.tema = new Tema();
+    	return "temas.xhtml?faces-redirect=true";
+    }
+    
+    public String excluirTema(Tema tema) {
+    	this.temaService.remover(tema);
     	return null;
     }
 

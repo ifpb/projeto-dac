@@ -28,16 +28,14 @@ public class TemaController implements Serializable {
         temaDao.salvar(tema);
     }
 
-    /*
-    public String remover(Tema tema){
+    
+    public void remover(Tema tema){
         this.temaDao.remover(tema);
-        return null;
     }
-     */
+    
 
-    public String atualizar(Tema tema){
+    public void atualizar(Tema tema){
         this.temaDao.atualizar(tema);
-        return "??????"; // Definir para onde será redirecionado
     }
     public String buscarTema(Long id){
         this.temaDao.buscar(id);
