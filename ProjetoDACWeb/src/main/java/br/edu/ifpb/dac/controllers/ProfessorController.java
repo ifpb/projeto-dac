@@ -47,6 +47,7 @@ public class ProfessorController implements Serializable {
     	this.tema.setProfessor(loginService.getProfessorLogado());
     	this.tema.setDisponivel(true);
     	this.temaService.salvar(this.tema);
+    	this.tema=new Tema();
     	return "temas.xhtml?faces-redirect=true";
     }
     
