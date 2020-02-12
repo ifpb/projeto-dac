@@ -17,6 +17,9 @@ public class Tema {
 
     @Column()
     private boolean disponivel;
+    
+    @Column()
+    private Integer quantidade;
 
     @ManyToOne
     private Professor professor;
@@ -60,4 +63,14 @@ public class Tema {
     public void setProfessor(Professor professor) {
         this.professor = professor;
     }
+
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+    
+    
 }
