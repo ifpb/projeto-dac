@@ -2,8 +2,7 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="../WEB-INF/template.xhtml">
-    <ui:define name="infoCabecalho">Temas</ui:define>
+                template="../WEB-INF/templateProfessor.xhtml">
     <ui:define name="principal">
         <div class="container">
             <h:form styleClass="card">
@@ -17,7 +16,7 @@
                     <h:outputLabel value="Título" for="tituloTema"/>
                     <h:inputTextarea id="descricaoTema" styleClass="form-control" value="#{temaController.tema.descricao}"/>
                 </div>
-                <h:commandButton value="Adicionar Tema" action="#{temaController.salvar()}" styleClass="btn btn-primary navbar-right offset" role="button" />
+                <h:commandButton value="Adicionar Tema" action="#{temaController.salvar}" styleClass="btn btn-primary navbar-right offset" role="button" />
             </h:form>
             <hr/>
             <div class="container">
