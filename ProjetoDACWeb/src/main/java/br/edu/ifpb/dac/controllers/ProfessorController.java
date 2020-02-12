@@ -5,6 +5,7 @@ import br.edu.ifpb.dac.ejb.entidades.Tema;
 import br.edu.ifpb.dac.ejb.services.impl.ProfessorService;
 import br.edu.ifpb.dac.web.LoginUsuarioBean;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -19,9 +20,8 @@ import java.util.Optional;
 @Named
 public class ProfessorController implements Serializable {
 
-    private Professor professor = new Professor();
-    
-    private Tema tema = new Tema();
+    private Professor professor;
+    private Tema tema;
 
     @Inject
     private ProfessorService professorService;
@@ -31,6 +31,12 @@ public class ProfessorController implements Serializable {
     
     @Inject
     private TemaController temaService;
+
+    @PostConstruct
+    public void init(){
+        professor = new Professor();
+        tema = new Tema();
+    }
 
     public String CadastrarProfessor(){
         try {
@@ -46,7 +52,7 @@ public class ProfessorController implements Serializable {
     public String cadastrarTemas() {
     	this.tema.setProfessor(loginService.getProfessorLogado());
     	this.tema.setDisponivel(true);
-    	this.temaService.salvar(this.tema);
+    	this.temaService.salvar();
     	this.tema=new Tema();
     	return "temas.xhtml?faces-redirect=true";
     }
@@ -103,6 +109,10 @@ public class ProfessorController implements Serializable {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    public String goToTemas(){
+        return "temas.xhtml?faces-redirect=true";
     }
 
 

@@ -20,8 +20,7 @@
             </h:form>
             <hr/>
             <div class="container">
-                <h:dataTable styleClass="table" binding="#{temaController.dataTable}"
-                             value="#{temaController.buscarTodosOsTemas()}" var="tema">
+                <h:dataTable styleClass="table" value="#{temaController.temas}" var="tema">
                     <h:column  scope="col">
                         <f:facet name="header">ID</f:facet>
                         #{tema.id}
@@ -45,8 +44,8 @@
 
                     <h:column scope="col">
                         <f:facet name="header">Opções</f:facet>
-                        <h:commandButton styleClass="btn btn-primary material-icons" value="edit" role="button" action="#{temaController.editaTema()}"/>
-                        <h:commandButton styleClass="btn btn-primary material-icons" value="delete" role="button" action="#{temaController.excluiTema()}"/>
+                        <h:commandButton styleClass="btn btn-primary material-icons" value="edit" role="button"/>
+                        <h:commandButton styleClass="btn btn-primary material-icons" value="delete" role="button"/>
                     </h:column>
                 </h:dataTable>
             </div>
