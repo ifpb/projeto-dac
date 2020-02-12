@@ -5,11 +5,12 @@ import br.edu.ifpb.dac.ejb.entidades.Professor;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
 @Stateless
-public class ProfessorService {
+public class ProfessorService implements Serializable {
 
     @Inject
     private ProfessorDao professorDao;

@@ -54,7 +54,7 @@ public class ProfessorController implements Serializable {
     	this.tema.setDisponivel(true);
     	this.temaService.salvar();
     	this.tema=new Tema();
-    	return "temas.xhtml?faces-redirect=true";
+    	return "/temas.xhtml?faces-redirect=true";
     }
     
     //na página temas o botão editar deve acionar esse método
@@ -112,7 +112,7 @@ public class ProfessorController implements Serializable {
     }
 
     public String goToTemas(){
-        return "temas.xhtml?faces-redirect=true";
+        return "/restricted/temas.xhtml?faces-redirect=true";
     }
 
 
