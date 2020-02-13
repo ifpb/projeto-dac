@@ -17,32 +17,32 @@ import java.util.List;
 @Named
 public class TemaController implements Serializable {
 
-    private Tema tema;
+    private Tema tema = new Tema();
 
-    private List<Tema> temas;
+    private List<Tema> temas = new ArrayList<>();
 
     @Inject
     private TemaDao temaDao;
 
     @PostConstruct
     public void init(){
-        tema = new Tema();
-        temas = buscarTodosOsTemas();
+        carregarTemas();
     }
 
-    public List<Tema> buscarTodosOsTemas(){
-        return temaDao.buscarTodos();
+    public void carregarTemas(){
+        this.temas = temaDao.buscarTodos();
     }
 
     public void salvar(){
-        temaDao.salvar(tema);
+        this.temaDao.salvar(tema);
+        carregarTemas();
     }
 
     
     public void remover(Tema tema){
         this.temaDao.remover(tema);
+        carregarTemas();
     }
-    
 
     public void atualizar(Tema tema){
         this.temaDao.atualizar(tema);
