@@ -39,8 +39,7 @@ public class TemaController implements Serializable {
     }
 
     
-    public void remover(Tema tema){
-        this.temaDao.remover(tema);
+    public void remover(Tema tema){ this.temaDao.remover(tema);
         carregarTemas();
     }
 
