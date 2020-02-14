@@ -2,7 +2,9 @@ package br.edu.ifpb.dac.web;
 
 import br.edu.ifpb.dac.ejb.entidades.Aluno;
 import br.edu.ifpb.dac.ejb.entidades.Professor;
+import br.edu.ifpb.dac.ejb.entidades.Usuario;
 import br.edu.ifpb.dac.ejb.services.Excecao.AutenticacaoExcecao;
+import br.edu.ifpb.dac.ejb.services.inteface.AutenticacaoService;
 import br.edu.ifpb.dac.ejb.services.inteface.AutenticacaoServiceAluno;
 import br.edu.ifpb.dac.ejb.services.inteface.AutenticacaoServiceProfessor;
 
@@ -27,6 +29,8 @@ public class LoginUsuarioBean implements Serializable {
     @EJB
     AutenticacaoServiceProfessor autenticacaoServiceProfessor;
 
+    @EJB
+    AutenticacaoService autenticacaoServiceAdmin;
 
     private String matricula;
 
@@ -36,34 +40,37 @@ public class LoginUsuarioBean implements Serializable {
 
     private String nomeProfessor;
 
+    private String nomeAdmin;
+
     private Aluno alunoLogado;
 
     private Professor professorLogado;
 
+    private Usuario adminLogado;
+
     public String efetuarLogin(String matricula) {
-        if (matricula.length()==12){
             try {
-                alunoLogado = autenticacaoServiceAluno.login(matricula, senha);
+               if (matricula.length()==12){
+                   alunoLogado = autenticacaoServiceAluno.login(matricula, senha);
+                   HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+                   session.setAttribute("matricula",matricula);
+                   return "/restricted/indexaluno?faces-redirect=true";
+               } else if (matricula.length()==8){
+                   professorLogado = autenticacaoServiceProfessor.login(matricula, senha);
+                   HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+                   session.setAttribute("matricula",matricula);
+                   return "/restricted/indexprofessor?faces-redirect=true";
+               }else {
+                   adminLogado = autenticacaoServiceAdmin.login(matricula,senha);
+                   HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+                   session.setAttribute("matricula",matricula);
+                   return "cadastro.xhtml";
+               }
             } catch (AutenticacaoExcecao e) {
                 FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Matrícula ou senha do usuário inválidos!", "Detalhe");
                 FacesContext.getCurrentInstance().addMessage("msg", facesMsg);
                 return null;
             }
-            HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-            session.setAttribute("matricula",matricula);
-            return "/restricted/indexaluno?faces-redirect=true";
-        }else {
-            try {
-                professorLogado = autenticacaoServiceProfessor.login(matricula, senha);
-            } catch (AutenticacaoExcecao e) {
-                FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Matrícula ou senha do usuário inválidos!", "Detalhe");
-                FacesContext.getCurrentInstance().addMessage("msg", facesMsg);
-                return null;
-            }
-            HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-            session.setAttribute("matricula",matricula);
-            return "/restricted/indexprofessor?faces-redirect=true";
-        }
     }
 
     public String getNomeALuno(){
@@ -76,11 +83,15 @@ public class LoginUsuarioBean implements Serializable {
         return nomeProfessor;
     }
 
+    public String getNomeAdmin(){
+        nomeAdmin = adminLogado.getNome();
+        return nomeAdmin;
+    }
+
     public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "/login?faces-redirect=true";
     }
-
 
     public String getMatricula() {
         return matricula;
@@ -106,5 +117,8 @@ public class LoginUsuarioBean implements Serializable {
 		return professorLogado;
 	}
 
+	public Usuario getAdminLogado(){
+        return adminLogado;
+    }
 
 }

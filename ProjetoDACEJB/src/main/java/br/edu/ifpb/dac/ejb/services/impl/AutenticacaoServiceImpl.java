@@ -25,7 +25,7 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
 	
 	public Usuario login(String login, String senha) throws AutenticacaoExcecao {
 		log.info("Autenticando usuário "+login);
-		Usuario usuario = usuarioDAO.buscarPorLogin(login).orElseThrow( () -> new AutenticacaoExcecao("Login não existe"));
+		Usuario usuario = usuarioDAO.buscarPorMatricula(login).orElseThrow( () -> new AutenticacaoExcecao("Login não existe"));
 		if (!usuario.getSenha().equals(senha)) {
 			throw new AutenticacaoExcecao("Senha inválida");
 		}

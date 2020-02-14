@@ -2,47 +2,39 @@ package br.edu.ifpb.dac.controllers;
 
 
 import br.edu.ifpb.dac.ejb.dao.interfaces.UsuarioDAO;
+import br.edu.ifpb.dac.ejb.entidades.Aluno;
 import br.edu.ifpb.dac.ejb.entidades.Usuario;
+import br.edu.ifpb.dac.ejb.services.impl.UsuarioService;
+import br.edu.ifpb.dac.web.LoginUsuarioBean;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 
 @RequestScoped
 @Named
 public class UsuarioController implements Serializable {
 
-    private Usuario usuario;
+    private Usuario usuario = new Usuario();
 
     @Inject
-    private UsuarioDAO usuarioDAO;
+    private UsuarioService usuarioService;
 
     public List<Usuario> buscarTodosOsUsuarios(){
-        return usuarioDAO.buscarTodos();
+        return usuarioService.listarUsuarios();
     }
 
-    public String salvar(Usuario usuario){
-        usuarioDAO.salvar(usuario);
-        return null;
-    }
-
-    /*                                              Criar esse método no DAO de aluno
-    public String remover(Usuario usuario){
-        this.usuarioDAO.remover(usuario);
-        return null;
-    }
-     */
-
-    public String atualizar(Usuario usuario){
-        this.usuarioDAO.atualizar(usuario);
-        return "??????"; // Definir para onde será redirecionado
-    }
     public String buscarUsuario(Long id){
-        this.usuarioDAO.buscar(id);
-        return "?????w"; // Definir para onde será redirecionado
+        this.usuarioService.buscarUsuario(id);
+        return null;
+    }
+
+    public Optional<Usuario> buscarUsuarioPorMatricula(String matricula){
+        return this.usuarioService.buscarPorMatricula(matricula);
     }
 
     public Usuario getUsuario() {

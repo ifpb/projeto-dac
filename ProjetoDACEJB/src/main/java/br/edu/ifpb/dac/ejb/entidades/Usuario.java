@@ -1,29 +1,25 @@
 package br.edu.ifpb.dac.ejb.entidades;
 
-import java.util.List;
-
-import javax.persistence.ElementCollection;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Usuario {
-	
-	public enum Papel { ADMINISTRADOR, PROFESSOR, ALUNO }
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
+	@Column(length = 60)
 	private String nome;
-	
-	private String login;
-	
+
+	@Column(length = 12, unique = true)
+	private String matricula;
+
+	@Column(length = 20)
 	private String senha;
-	
-	@ElementCollection
-	private List<Papel> papeis;
 
 	public Long getId() {
 		return id;
@@ -41,12 +37,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getMatricula() {
+		return matricula;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 	public String getSenha() {
@@ -56,13 +52,4 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-	public List<Papel> getPapeis() {
-		return papeis;
-	}
-
-	public void setPapeis(List<Papel> papeis) {
-		this.papeis = papeis;
-	}
-	
 }

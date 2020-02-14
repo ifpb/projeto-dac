@@ -49,7 +49,8 @@ public class AlunoDaoImpl implements AlunoDao {
     public Optional<Aluno> buscarPorMatricula(String matricula) {
         Optional<Aluno> aluno = Optional.empty();
         try {
-            aluno = Optional.ofNullable((Aluno) em.createQuery("SELECT a FROM Aluno a WHERE a.matricula = :matricula").setParameter("matricula", matricula).setMaxResults(1).getSingleResult());
+            aluno = Optional.ofNullable((Aluno) em.createQuery("SELECT a FROM Aluno a WHERE a.matricula = :matricula").
+                    setParameter("matricula", matricula).setMaxResults(1).getSingleResult());
         } catch(NoResultException e) {
             log.log(Level.WARNING, "Nenhum resultado encontrado para este login");
         }

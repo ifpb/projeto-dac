@@ -27,8 +27,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	@Override
-	public void atualizar(Usuario p) {
-		em.merge(p);
+	public void atualizar(Usuario u) {
+		em.merge(u);
 	}
 
 	@Override
@@ -37,10 +37,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 	
 	@Override
-	public Optional<Usuario> buscarPorLogin(String login) {
+	public Optional<Usuario> buscarPorMatricula(String matricula) {
 		Optional<Usuario> usuario = Optional.empty();
 		try {
-			usuario = Optional.ofNullable((Usuario)em.createQuery("SELECT u FROM Usuario u WHERE u.login = :login").setParameter("login", login).setMaxResults(1).getSingleResult());
+			usuario = Optional.ofNullable((Usuario)em.createQuery("SELECT u FROM Usuario u WHERE u.matricula = :matricula").
+					setParameter("matricula", matricula).setMaxResults(1).getSingleResult());
 		} catch(NoResultException e) {
 			log.log(Level.WARNING, "Nenhum resultado encontrado para este login");
 		}

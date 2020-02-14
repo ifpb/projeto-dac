@@ -12,7 +12,7 @@ public interface UsuarioDAO {
 
     Usuario buscar(Long id);
 
-    Optional<Usuario> buscarPorLogin(String login);
-
     List<Usuario> buscarTodos();
+
+    Optional<Usuario> buscarPorMatricula(String matricula);
 }
