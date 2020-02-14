@@ -2,6 +2,7 @@ package br.edu.ifpb.dac.controllers;
 
 import br.edu.ifpb.dac.ejb.dao.interfaces.PeriodoDao;
 import br.edu.ifpb.dac.ejb.entidades.Periodo;
+import br.edu.ifpb.dac.ejb.services.impl.PeriodoService;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -17,14 +18,14 @@ public class PeriodoController implements Serializable {
     private Periodo periodo;
 
     @Inject
-    private PeriodoDao periodoDAO;
+    private PeriodoService periodoService;
 
     public List<Periodo> buscarTodosOsPeriodos(){
-        return periodoDAO.buscarTodos();
+        return periodoService.buscarTodos();
     }
 
     public String salvar(Periodo periodo){
-        periodoDAO.salvar(periodo);
+        periodoService.definirPeriodo(periodo);
         return null;
     }
 
@@ -36,11 +37,11 @@ public class PeriodoController implements Serializable {
      */
 
     public String atualizar(Periodo periodo){
-        this.periodoDAO.atualizar(periodo);
+        this.periodoService.atualizar(periodo);
         return "??????"; // Definir para onde será redirecionado
     }
     public String buscarPeriodo(Long id){
-        this.periodoDAO.buscar(id);
+        this.periodoService.buscar(id);
         return "?????w"; // Definir para onde será redirecionado
     }
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ProjetoDACClient/ProjetoDACClient.iml" filepath="$PROJECT_DIR$/ProjetoDACClient/ProjetoDACClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjetoDACEAR/ProjetoDACEAR.iml" filepath="$PROJECT_DIR$/ProjetoDACEAR/ProjetoDACEAR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjetoDACEJB/ProjetoDACEJB.iml" filepath="$PROJECT_DIR$/ProjetoDACEJB/ProjetoDACEJB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjetoDACParent.iml" filepath="$PROJECT_DIR$/ProjetoDACParent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjetoDACWeb/ProjetoDACWeb.iml" filepath="$PROJECT_DIR$/ProjetoDACWeb/ProjetoDACWeb.iml" />
+    </modules>
+  </component>
+</project>
