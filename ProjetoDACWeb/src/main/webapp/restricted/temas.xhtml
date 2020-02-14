@@ -19,7 +19,7 @@
                     <h:inputTextarea id="descricaoTema" maxlength="120" styleClass="form-control" required="true" requiredMessage="Campo descrição em branco!" value="#{temaController.tema.descricao}"/>
                     <p:messages autoUpdate="true" for="descricaoTema"/>
                 </div>
-                <h:commandButton value="Adicionar Tema" action="#{temaController.salvar}" styleClass="btn btn-primary navbar-right offset" role="button" />
+                <h:commandButton value="Adicionar Tema" action="#{temaController.cadastrarTema}" styleClass="btn btn-primary navbar-right offset" role="button" />
             </h:form>
             <hr/>
             <div class="container">
@@ -37,7 +37,7 @@
 
                         <h:column scope="col">
                             <f:facet name="header">Opções</f:facet>
-                            <h:commandButton styleClass="btn btn-primary material-icons" value="edit" role="button"/>
+                            <h:commandButton styleClass="btn btn-primary material-icons" action="#{temaController.editarTema(tema)}"  value="edit" role="button"/>
                             <h:commandButton styleClass="btn btn-primary material-icons" action="#{temaController.remover(tema)}" value="delete" role="button"/>
                         </h:column>
                     </h:dataTable>
