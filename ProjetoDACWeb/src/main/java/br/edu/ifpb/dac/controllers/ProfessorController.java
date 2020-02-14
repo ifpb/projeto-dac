@@ -25,9 +25,6 @@ public class ProfessorController implements Serializable {
     @Inject
     private ProfessorService professorService;
     
-    
-    @Inject
-    private TemaController temaService;
 
     @PostConstruct
     public void init(){
@@ -45,13 +42,6 @@ public class ProfessorController implements Serializable {
         }
     }
     
-
-    
-    
-    public String excluirTema(Tema tema) {
-    	this.temaService.remover(tema);
-    	return null;
-    }
 
     public List<Professor> buscarTodosOsProfessores(){
         return professorService.listarProfessores();

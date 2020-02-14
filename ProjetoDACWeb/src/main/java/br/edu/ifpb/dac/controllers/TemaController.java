@@ -40,6 +40,7 @@ public class TemaController implements Serializable {
     }
     
     public String confirmarEdicao(){
+    	this.tema.setDisponivel(true);
     	this.temaDao.atualizar(this.tema);
     	this.tema = new Tema();
     	return "null";
