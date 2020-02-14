@@ -64,7 +64,7 @@ public class LoginUsuarioBean implements Serializable {
                    adminLogado = autenticacaoServiceAdmin.login(matricula,senha);
                    HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
                    session.setAttribute("matricula",matricula);
-                   return "cadastro.xhtml";
+                   return "/restricted/indexadmin?faces-redirect=true";
                }
             } catch (AutenticacaoExcecao e) {
                 FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Matrícula ou senha do usuário inválidos!", "Detalhe");
