@@ -37,6 +37,9 @@ public class AlunoDaoImpl implements AlunoDao {
 
     @Override
     public void remover(Aluno a){
+        if (!em.contains(a)) {
+            a = em.merge(a);
+        }
         em.remove(a);
     }
 

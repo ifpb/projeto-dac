@@ -28,6 +28,9 @@ public class CriterioAvaliacaoDaoImpl implements CriterioAvaliacaoDao {
 
     @Override
     public void remover(CriterioAvaliacao c){
+        if (!em.contains(c)) {
+            c = em.merge(c);
+        }
         em.remove(c);
     }
 

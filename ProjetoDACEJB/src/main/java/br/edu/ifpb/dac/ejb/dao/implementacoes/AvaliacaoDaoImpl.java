@@ -26,6 +26,9 @@ public class AvaliacaoDaoImpl implements AvaliacaoDao {
 
     @Override
     public void remover(Avaliacao a){
+        if (!em.contains(a)) {
+            a = em.merge(a);
+        }
         em.remove(a);
     }
 

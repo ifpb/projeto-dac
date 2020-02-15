@@ -33,6 +33,9 @@ public class InscricaoDaoImpl implements InscricaoDao {
 
     @Override
     public void remover(Inscricao i){
+        if (!em.contains(i)) {
+            i = em.merge(i);
+        }
         em.remove(i);
     }
 

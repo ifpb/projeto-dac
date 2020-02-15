@@ -34,6 +34,9 @@ public class PreProjetoDaoImpl implements PreProjetoDao {
 
     @Override
     public void remover(PreProjeto p){
+        if (!em.contains(p)) {
+            p = em.merge(p);
+        }
         em.remove(p);
     }
 

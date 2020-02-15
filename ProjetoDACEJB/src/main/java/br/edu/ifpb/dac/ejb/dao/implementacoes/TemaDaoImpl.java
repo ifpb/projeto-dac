@@ -36,7 +36,6 @@ public class TemaDaoImpl implements TemaDao {
         if (!em.contains(t)) {
             t = em.merge(t);
         }
-
         em.remove(t);
     }
 

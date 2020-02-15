@@ -33,6 +33,9 @@ public class PeriodoDaoImpl implements PeriodoDao {
 
     @Override
     public void remover(Periodo p){
+        if (!em.contains(p)) {
+            p = em.merge(p);
+        }
         em.remove(p);
     }
 

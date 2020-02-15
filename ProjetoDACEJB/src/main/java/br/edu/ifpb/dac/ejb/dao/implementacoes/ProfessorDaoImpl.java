@@ -38,6 +38,9 @@ public class ProfessorDaoImpl implements ProfessorDao {
 
     @Override
     public void remover(Professor p){
+        if (!em.contains(p)) {
+            p = em.merge(p);
+        }
         em.remove(p);
     }
 
