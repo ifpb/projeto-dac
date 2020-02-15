@@ -33,6 +33,10 @@ public class TemaDaoImpl implements TemaDao {
 
     @Override
     public void remover(Tema t){
+        if (!em.contains(t)) {
+            t = em.merge(t);
+        }
+
         em.remove(t);
     }
 

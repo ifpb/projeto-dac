@@ -77,6 +77,11 @@ public class AlunoController implements Serializable {
         inscricaoService.salvar(this.inscricao);
     }
 
+    public String goToTemasAlunos(){
+        return "/restricted/temasalunos.xhtml?faces-redirect=true";
+    }
+
+
 //getters e setters
 
 
