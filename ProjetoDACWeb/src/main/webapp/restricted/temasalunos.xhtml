@@ -6,7 +6,20 @@
                 template="templateAluno.xhtml">
     <ui:define name="principal">
         <div class="container">
-        <h:inputText value="pegou"></h:inputText>
+            <h:form>
+                <h:dataTable styleClass="table" value="#{temaController.temas}" var="tema">
+                    <h:column scope="col">
+                        <f:facet name="header">Titulo</f:facet>
+                        #{tema.titulo}
+                    </h:column>
+                    <h:column scope="col">
+                        <f:facet name="header">Disponível</f:facet>
+                        <h:commandButton value="Inscrever" action="#" styleClass="btn btn-primary navbar-right offset" role="button" />
+
+                    </h:column>
+                </h:dataTable>
+
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>
