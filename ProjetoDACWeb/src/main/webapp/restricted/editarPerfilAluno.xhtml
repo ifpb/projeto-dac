@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templateAluno.xhtml">
+
+    <ui:define name="principal">
+        <h3 id="EditarPerfilTitle"><h:outputLabel value="Editar Perfil"/> </h3>
+        <div class="box">
+            <h:form>
+            <h:panelGroup id="inputAluno"  value="#{clienteMB.tipoPessoa}" rendered="#{clienteMB.tipoPessoa == 'ALUNO'}">
+
+                <div class="form-group" >
+
+                    <h:outputLabel for="emailAluno" value="Endereço de e-mail:"/>
+                    <h:message for="emailAluno" styleClass="erro" />
+                    <h:inputText id="emailAluno" class="form-control" value="#{alunoController.loginService.alunoLogado.email}" required="true"
+                                 requiredMessage="Campo obrigatório!">
+                        <f:passThroughAttribute name="placeholder" value="Email"/>
+                    </h:inputText>
+
+
+                    <h:outputLabel for="nomeAluno" value="Nome:"/>
+                    <h:message for="nomeAluno" styleClass="erro" />
+                    <h:inputText id="nomeAluno" class="form-control" value="#{alunoController.loginUsuarioBean.alunoLogado.nome}" required="true"
+                                 requiredMessage="Campo inválido!">
+                        <f:passThroughAttribute name="placeholder" value="Nome"/>
+                    </h:inputText>
+
+
+                    <h:outputLabel for="matriculaAluno" value="Matrícula: "/>
+                    <h:outputLabel for="matriculaAluno" value="  *Campo com 12 digitos" styleClass="erro"/><br/>
+                    <h:message for="matriculaAluno" styleClass="erro" />
+                    <h:inputText id="matriculaAluno" class="form-control" value="#{alunoController.loginUsuarioBean.alunoLogado.matricula}" required="true"
+                                 requiredMessage="Campo inválido!"  >
+                        <f:validateLength minimum="12" maximum="12"/>
+                        <f:passThroughAttribute name="placeholder" value="Matrícula"/>
+                    </h:inputText>
+
+
+                    <h:outputLabel for="cursoAluno" value="Curso Superior:"/>
+                    <h:selectOneRadio id="cursoAluno" value="#{alunoController.loginUsuarioBean.alunoLogado.curso}" required="true" requiredMessage="Campo obrigatório!">
+                        <f:selectItem class="form-check-input" itemValue="ADS" itemLabel="ADS" />
+                        <f:selectItem class="form-check-input" itemValue="EngenhariaCivil" itemLabel="Engenharia Civil" />
+                        <f:selectItem class="form-check-input" itemValue="EngenhariaControle" itemLabel="Engenharia De Controle" />
+                        <h:message for="cursoAluno" styleClass="erro" />
+
+                    </h:selectOneRadio><br/>
+
+                    <h:outputLabel for="senhaAluno" value="Senha:"/>
+                    <h:outputLabel for="matriculaProfessor" value="  *campo com pelo menos 4 digitos" styleClass="erro"/><br/>
+                    <h:inputSecret id="senhaAluno" class="form-control" value="#{alunoController.aluno.senha}" required="true"
+                                   requiredMessage="Campo obrigatório!">
+                        <h:message for="senhaAluno" styleClass="erro" />
+                        <f:validateLength minimum="4" maximum="256"/>
+                        <f:passThroughAttribute name="placeholder" value="Senha"/>
+                    </h:inputSecret>
+
+                </div>
+                <h:commandButton value="Salvar" class="btn btn-primary grande" action="#{alunoController.CadastrarAluno}"/>
+            </h:panelGroup>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -34,7 +34,6 @@ public class AlunoController implements Serializable {
     @Inject
     private LoginUsuarioBean loginService;
 
-
     public String CadastrarAluno(){
         try {
             alunoService.cadastrarAluno(aluno);
@@ -82,6 +81,11 @@ public class AlunoController implements Serializable {
         return "/restricted/temasalunos.xhtml?faces-redirect=true";
     }
 
+    public String goToEditarPerfil(){
+        return "/restricted/editarPerfilAluno.xhtml?faces-redirect=true";
+    }
+
+
 
 //getters e setters
 
@@ -103,6 +107,5 @@ public class AlunoController implements Serializable {
 	public void setInscricao(Inscricao inscricao) {
 		this.inscricao = inscricao;
 	}
-    
-    
+
 }
