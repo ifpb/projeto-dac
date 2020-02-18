@@ -49,7 +49,7 @@
 
                     <h:outputLabel for="senhaAluno" value="Senha:"/>
                     <h:outputLabel for="matriculaProfessor" value="  *campo com pelo menos 4 digitos" styleClass="erro"/><br/>
-                    <h:inputSecret id="senhaAluno" class="form-control" value="#{alunoController.aluno.senha}" required="true"
+                    <h:inputSecret id="senhaAluno" class="form-control" value="#{alunoController.loginService.alunoLogado.senha}" required="true"
                                    requiredMessage="Campo obrigatório!">
                         <h:message for="senhaAluno" styleClass="erro" />
                         <f:validateLength minimum="4" maximum="256"/>
@@ -57,7 +57,7 @@
                     </h:inputSecret>
 
                 </div>
-                <h:commandButton value="Salvar" class="btn btn-primary grande" action="#{alunoController.CadastrarAluno}"/>
+                <h:commandButton value="Salvar" class="btn btn-primary grande" action="#{alunoController.atualizar(loginUsuarioBean.alunoLogado)}"/>
             </h:panelGroup>
             </h:form>
         </div>
