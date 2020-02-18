@@ -108,4 +108,11 @@ public class AlunoController implements Serializable {
 		this.inscricao = inscricao;
 	}
 
+    public LoginUsuarioBean getLoginService() {
+        return loginService;
+    }
+
+    public void setLoginService(LoginUsuarioBean loginService) {
+        this.loginService = loginService;
+    }
 }

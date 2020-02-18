@@ -22,7 +22,7 @@
 
                     <h:outputLabel for="nomeAluno" value="Nome:"/>
                     <h:message for="nomeAluno" styleClass="erro" />
-                    <h:inputText id="nomeAluno" class="form-control" value="#{alunoController.loginUsuarioBean.alunoLogado.nome}" required="true"
+                    <h:inputText id="nomeAluno" class="form-control" value="#{alunoController.loginService.alunoLogado.nome}" required="true"
                                  requiredMessage="Campo inválido!">
                         <f:passThroughAttribute name="placeholder" value="Nome"/>
                     </h:inputText>
@@ -31,7 +31,7 @@
                     <h:outputLabel for="matriculaAluno" value="Matrícula: "/>
                     <h:outputLabel for="matriculaAluno" value="  *Campo com 12 digitos" styleClass="erro"/><br/>
                     <h:message for="matriculaAluno" styleClass="erro" />
-                    <h:inputText id="matriculaAluno" class="form-control" value="#{alunoController.loginUsuarioBean.alunoLogado.matricula}" required="true"
+                    <h:inputText id="matriculaAluno" class="form-control" value="#{alunoController.loginService.alunoLogado.matricula}" required="true"
                                  requiredMessage="Campo inválido!"  >
                         <f:validateLength minimum="12" maximum="12"/>
                         <f:passThroughAttribute name="placeholder" value="Matrícula"/>
@@ -39,7 +39,7 @@
 
 
                     <h:outputLabel for="cursoAluno" value="Curso Superior:"/>
-                    <h:selectOneRadio id="cursoAluno" value="#{alunoController.loginUsuarioBean.alunoLogado.curso}" required="true" requiredMessage="Campo obrigatório!">
+                    <h:selectOneRadio id="cursoAluno" value="#{alunoController.loginService.alunoLogado.curso}" required="true" requiredMessage="Campo obrigatório!">
                         <f:selectItem class="form-check-input" itemValue="ADS" itemLabel="ADS" />
                         <f:selectItem class="form-check-input" itemValue="EngenhariaCivil" itemLabel="Engenharia Civil" />
                         <f:selectItem class="form-check-input" itemValue="EngenhariaControle" itemLabel="Engenharia De Controle" />
