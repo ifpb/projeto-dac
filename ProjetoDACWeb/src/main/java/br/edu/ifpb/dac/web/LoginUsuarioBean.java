@@ -121,4 +121,31 @@ public class LoginUsuarioBean implements Serializable {
         return adminLogado;
     }
 
+    public String getNomeAluno() {
+        return nomeAluno;
+    }
+
+    public void setNomeAluno(String nomeAluno) {
+        this.nomeAluno = nomeAluno;
+    }
+
+    public void setNomeProfessor(String nomeProfessor) {
+        this.nomeProfessor = nomeProfessor;
+    }
+
+    public void setNomeAdmin(String nomeAdmin) {
+        this.nomeAdmin = nomeAdmin;
+    }
+
+    public void setAlunoLogado(Aluno alunoLogado) {
+        this.alunoLogado = alunoLogado;
+    }
+
+    public void setProfessorLogado(Professor professorLogado) {
+        this.professorLogado = professorLogado;
+    }
+
+    public void setAdminLogado(Usuario adminLogado) {
+        this.adminLogado = adminLogado;
+    }
 }
