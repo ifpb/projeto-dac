@@ -1,0 +1,61 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templateProfessor.xhtml">
+
+
+   <ui:define name="principal">
+       <h3 id="EditarPerfilTitle"><h:outputLabel value="Editar Perfil"/> </h3>
+            <div class="box">
+                <h:form>
+                    <h:panelGroup id="inputProfessor">
+
+                        <div class="form-group" >
+                            <h:outputLabel for="emailProfessor" value="Endereço de e-mail:"/>
+                            <h:message for="emailProfessor" styleClass="erro" />
+                            <h:inputText id="emailProfessor" class="form-control" value="#{professorController.loginService.professorLogado.email}" required="true"
+                                         requiredMessage="Campo obrigatório!">
+                                <f:passThroughAttribute name="placeholder" value="Email"/>
+                            </h:inputText>
+
+                            <h:outputLabel for="nomeProfessor" value="Nome:"/>
+                            <h:message for="nomeProfessor" styleClass="erro" />
+                            <h:inputText id="nomeProfessor" class="form-control" value="#{professorController.loginService.professorLogado.nome}" required="true"
+                                         requiredMessage="Campo inválido!">
+                                <f:passThroughAttribute name="placeholder" value="Nome"/>
+                            </h:inputText>
+
+                            <h:outputLabel for="matriculaProfessor" value="Matrícula:"/>
+                            <h:outputLabel for="matriculaProfessor" value="  *Campo com 8 digitos" styleClass="erro"/><br/>
+                            <h:message for="matriculaProfessor" styleClass="erro" />
+                            <h:inputText id="matriculaProfessor" disabled="true" class="form-control" value="#{professorController.loginService.professorLogado.matricula}" required="true"
+                                         requiredMessage="Campo inválido!">
+                                <f:validateLength minimum="8" maximum="8"/>
+                                <f:passThroughAttribute name="placeholder" value="Matrícula"/>
+                            </h:inputText>
+
+                            <h:outputLabel for="cursoProfessor" value="Curso Superior:"/>
+                            <h:message for="cursoProfessor" styleClass="erro" />
+                            <h:inputText id="cursoProfessor" class="form-control" disabled="true" value="#{alunoController.loginService.professorLogado.curso}" required="true"
+                                         requiredMessage="Campo inválido!">
+                                <f:passThroughAttribute name="placeholder" value="Nome"/>
+                            </h:inputText>
+
+                            <h:outputLabel for="senhaProfessor" value="Senha:"/>
+                            <h:outputLabel for="matriculaProfessor" value="  *campo com pelo menos 4 digitos" styleClass="erro"/><br/>
+                            <h:inputSecret id="senhaProfessor" class="form-control" value="#{professorController.loginService.professorLogado.senha}" required="true"
+                                           requiredMessage="Campo obrigatório!">
+                                <h:message for="senhaProfessor" styleClass="erro" />
+                                <f:validateLength minimum="4" maximum="256"/>
+                                <f:passThroughAttribute name="placeholder" value="Senha"/>
+                            </h:inputSecret>
+
+                        </div>
+                        <h:commandButton value="Salvar" class="btn btn-primary grande" action="#{professorController.atualizar(loginUsuarioBean.professorLogado)}"/>
+                    </h:panelGroup>
+                </h:form>
+            </div>
+   </ui:define>
+
+</ui:composition>
