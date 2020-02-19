@@ -56,7 +56,7 @@ public class AlunoController implements Serializable {
 
     public String atualizar(Aluno aluno){
         this.alunoService.atualizarAluno(aluno);
-        return null;
+        return "/login?faces-redirect=true";
     }
 
     public String buscarAluno(Long id){

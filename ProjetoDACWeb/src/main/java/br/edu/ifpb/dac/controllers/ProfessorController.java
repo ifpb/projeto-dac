@@ -24,6 +24,9 @@ public class ProfessorController implements Serializable {
 
     @Inject
     private ProfessorService professorService;
+
+    @Inject
+    private LoginUsuarioBean loginService;
     
 
     @PostConstruct
@@ -54,7 +57,7 @@ public class ProfessorController implements Serializable {
 
     public String atualizar(Professor professor){
         this.professorService.atualizarProfessor(professor);
-        return null;
+        return "/login?faces-redirect=true";
     }
     public String buscarProfessor(Long id){
         this.professorService.buscarProfessor(id);
@@ -79,5 +82,15 @@ public class ProfessorController implements Serializable {
         return "/restricted/temas.xhtml?faces-redirect=true";
     }
 
+    public String goToEditarPerfil(){
+        return "/restricted/editarPerfilProfessor.xhtml?faces-redirect=true";
+    }
 
+    public LoginUsuarioBean getLoginService() {
+        return loginService;
+    }
+
+    public void setLoginService(LoginUsuarioBean loginService) {
+        this.loginService = loginService;
+    }
 }
