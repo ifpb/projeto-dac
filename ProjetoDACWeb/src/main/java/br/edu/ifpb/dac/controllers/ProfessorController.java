@@ -57,7 +57,7 @@ public class ProfessorController implements Serializable {
 
     public String atualizar(Professor professor){
         this.professorService.atualizarProfessor(professor);
-        return null;
+        return "/login?faces-redirect=true";
     }
     public String buscarProfessor(Long id){
         this.professorService.buscarProfessor(id);
