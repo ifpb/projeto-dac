@@ -14,7 +14,8 @@
                     </h:column>
                     <h:column scope="col">
                         <f:facet name="header">Disponível</f:facet>
-                        <h:commandButton value="Inscrever" action="#{alunoController.inscrever}" styleClass="btn btn-primary navbar-right offset" role="button" />
+                        <p:messages autoUpdate="true"/>
+                        <h:commandButton value="Inscrever" action="#{inscricaoController.salvar(tema)}" styleClass="btn btn-primary navbar-right offset" role="button" />
 
                     </h:column>
                 </h:dataTable>

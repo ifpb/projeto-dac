@@ -1,6 +1,7 @@
 package br.edu.ifpb.dac.ejb.dao.implementacoes;
 
 import br.edu.ifpb.dac.ejb.dao.interfaces.InscricaoDao;
+import br.edu.ifpb.dac.ejb.entidades.Avaliacao;
 import br.edu.ifpb.dac.ejb.entidades.Inscricao;
 
 import javax.ejb.Stateless;
@@ -42,6 +43,12 @@ public class InscricaoDaoImpl implements InscricaoDao {
     @Override
     public List<Inscricao> buscarTodos() {
         return em.createQuery("SELECT i FROM Inscricao i", Inscricao.class).getResultList();
+    }
+
+    @Override
+    public List<Avaliacao> listarAvaliacao(Inscricao i) {
+//        return em.createQuery("SELECT i. FROM Inscricao i")
+        return null;
     }
 
 }

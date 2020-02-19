@@ -1,5 +1,6 @@
 package br.edu.ifpb.dac.ejb.dao.interfaces;
 
+import br.edu.ifpb.dac.ejb.entidades.Avaliacao;
 import br.edu.ifpb.dac.ejb.entidades.Inscricao;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface InscricaoDao {
     void remover(Inscricao i);
 
     List<Inscricao> buscarTodos();
+
+    List<Avaliacao> listarAvaliacao(Inscricao i);
 }

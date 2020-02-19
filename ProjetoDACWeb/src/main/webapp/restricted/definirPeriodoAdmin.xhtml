@@ -6,26 +6,27 @@
                 template="templateAdmin.xhtml">
     <ui:define name="principal">
         <div class="container">
+            <p:messages autoUpdate="true"/>
             <h:form styleClass="card">
                 <h1>Definir Periodo</h1>
                 <div class="form-group">
                     <h:outputLabel value="Data Início" for="dataInicio"/>
-                    <p:inputMask id="dataInicio" styleClass="form-control" required="true" requiredMessage="Campo obrigatório" value="" mask="99/99/9999"/>
+                    <p:inputMask id="dataInicio" styleClass="form-control" required="true" requiredMessage="Campo obrigatório" value="#{periodoController.dataIni}" mask="99/99/9999"/>
                     <p:messages autoUpdate="true" for="dataInicio"/>
                 </div>
 
                 <div class="form-group">
                     <h:outputLabel value="Data Fim" for="dataFim"/>
-                    <p:inputMask id="dataFim" styleClass="form-control" required="true" requiredMessage="Campo obrigatório" value="" mask="99/99/9999"/>
+                    <p:inputMask id="dataFim" styleClass="form-control" required="true" requiredMessage="Campo obrigatório" value="#{periodoController.dataFim}" mask="99/99/9999"/>
                     <p:messages autoUpdate="true" for="dataFim"/>
                 </div>
 
                 <div class="form-group">
                     <h:outputLabel value="Periodo Letivo" for="periodoLetivo"/>
-                    <h:inputText id="periodoLetivo" styleClass="form-control" required="true" requiredMessage="Campo Obrigatório" value=""/>
+                    <h:inputText id="periodoLetivo" styleClass="form-control" required="true" requiredMessage="Campo Obrigatório" value="#{periodoController.periodoLetivo}"/>
                     <p:messages autoUpdate="true" for="periodoLetivo"/>
                 </div>
-                <h:commandButton value="Definir Periodo" action="#" styleClass="btn btn-primary navbar-right offset" role="button" />
+                <h:commandButton value="Definir Periodo" action="#{periodoController.salvar}" styleClass="btn btn-primary navbar-right offset" role="button" />
 
             </h:form>
 

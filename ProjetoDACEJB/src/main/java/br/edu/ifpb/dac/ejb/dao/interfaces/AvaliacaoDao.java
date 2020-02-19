@@ -14,4 +14,6 @@ public interface AvaliacaoDao {
     Avaliacao buscar(Long id);
 
     List<Avaliacao> buscarTodos();
+
+
 }

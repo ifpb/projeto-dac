@@ -18,7 +18,7 @@ public class PeriodoService {
     public boolean definirPeriodo(Periodo periodo){
 
         Date date = new Date();
-        if(periodo.getDataInicio().after(date) && periodo.getDataFim().after(date)){
+        if(periodo.getDataInicio().after(date) && periodo.getDataFim().after(periodo.getDataInicio())){
             periodoDao.salvar(periodo);
             return true;
         }else{
@@ -42,5 +42,9 @@ public class PeriodoService {
 
     public Periodo buscar(Long id) {
         return periodoDao.buscar(id);
+    }
+
+    public Periodo buscarPorData(Date d){
+        return periodoDao.buscarPorData(d);
     }
 }
