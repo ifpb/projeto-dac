@@ -16,12 +16,15 @@ public class PeriodoService {
     private PeriodoDao periodoDao;
 
     public boolean definirPeriodo(Periodo periodo){
-        if(periodo.getDataInicio().before(new Date()) || periodo.getDataFim().before(new Date())){
-            return false;
-        }else{
+
+        Date date = new Date();
+        if(periodo.getDataInicio().after(date) && periodo.getDataFim().after(date)){
             periodoDao.salvar(periodo);
             return true;
+        }else{
+            return false;
         }
+
     }
 
     public List<Periodo> buscarTodos(){

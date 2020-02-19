@@ -3,12 +3,16 @@ package br.edu.ifpb.dac.controllers;
 
 
 import br.edu.ifpb.dac.ejb.dao.interfaces.InscricaoDao;
+import br.edu.ifpb.dac.ejb.entidades.Aluno;
 import br.edu.ifpb.dac.ejb.entidades.Inscricao;
+import br.edu.ifpb.dac.ejb.entidades.Tema;
+import br.edu.ifpb.dac.ejb.services.impl.InscricaoService;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 
@@ -19,14 +23,18 @@ public class InscricaoController implements Serializable {
     private Inscricao inscricao;
 
     @Inject
-    private InscricaoDao inscricaoDAO;
+    private InscricaoService inscricaoService;
 
     public List<Inscricao> buscarTodosAsInscricoes(){
-        return inscricaoDAO.buscarTodos();
+        return inscricaoService.buscarTodos();
     }
 
-    public String salvar(Inscricao inscricao){
-        inscricaoDAO.salvar(inscricao);
+    public String salvar(Tema tema, Aluno aluno){
+//        inscricao.setAluno(aluno);
+//        inscricao.setDataInscricao(new Date());
+//        inscricao.setProfessor(tema.getProfessor());
+//        inscricao.setTema(tema);
+//        inscricaoService.salvar(inscricao);
         return null;
     }
 
@@ -38,11 +46,11 @@ public class InscricaoController implements Serializable {
      */
 
     public String atualizar(Inscricao inscricao){
-        this.inscricaoDAO.atualizar(inscricao);
+        this.inscricaoService.atualizar(inscricao);
         return "??????"; // Definir para onde será redirecionado
     }
     public String buscarInscricao(Long id){
-        this.inscricaoDAO.buscar(id);
+        this.inscricaoService.buscar(id);
         return "?????w"; // Definir para onde será redirecionado
     }
 

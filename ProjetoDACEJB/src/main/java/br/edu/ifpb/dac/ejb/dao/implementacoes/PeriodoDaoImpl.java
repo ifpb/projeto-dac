@@ -6,6 +6,8 @@ import br.edu.ifpb.dac.ejb.entidades.Periodo;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TemporalType;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -42,5 +44,14 @@ public class PeriodoDaoImpl implements PeriodoDao {
     @Override
     public List<Periodo> buscarTodos() {
         return em.createQuery("SELECT p FROM Periodo p", Periodo.class).getResultList();
+    }
+
+    @Override
+    public Periodo buscarPorData(Date d){
+
+
+        return em.createQuery(
+                "SELECT p FROM Periodo p WHERE :data BETWEEN p.dataInicio AND p.dataFim", Periodo.class).
+                setParameter("data", d, TemporalType.DATE).getSingleResult();
     }
 }

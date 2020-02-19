@@ -2,6 +2,7 @@ package br.edu.ifpb.dac.ejb.dao.interfaces;
 
 import br.edu.ifpb.dac.ejb.entidades.Periodo;
 
+import java.util.Date;
 import java.util.List;
 
 public interface PeriodoDao {
@@ -14,4 +15,6 @@ public interface PeriodoDao {
     void remover(Periodo p);
 
     List<Periodo> buscarTodos();
+
+    Periodo buscarPorData(Date d);
 }
