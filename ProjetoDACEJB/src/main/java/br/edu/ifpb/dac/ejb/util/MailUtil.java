@@ -60,7 +60,7 @@ public class MailUtil {
         CommandMap.setDefaultCommandMap(mc);
     }
 
-    public void enviarEmail(String emailDestinatario, String nomeDestinatario){
+    public static void enviarEmail(String emailDestinatario, String nomeDestinatario, String nomeAluno, String tema){
         log.info("Iniciando Envio de email");
         try{
             String htmlBody = "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n" +
@@ -73,9 +73,9 @@ public class MailUtil {
                     "        <td style=\"border: 1px solid #cccccc; padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif;\">\n" +
                     "\n" +
                     "            <center>\n" +
-                    "                <b style=\"font-size: 24px\">Caro, "+nomeDestinatario+".</b>\n" +
+                    "                <b style=\"font-size: 24px\">Caro professor "+nomeDestinatario+".</b>\n" +
                     "                <br>\n" +
-                    "                <h4 style=\"font-size: 24px\"> Seja bem vindo ao nosso Sistema!!</h4>\n" +
+                    "                <h4 style=\"font-size: 24px\"> O aluno "+nomeAluno+" se inscreveu no tema"+tema+" </h4>\n" +
                     "                <br>\n" +
                     "            </center>\n" +
                     "        </td>\n" +

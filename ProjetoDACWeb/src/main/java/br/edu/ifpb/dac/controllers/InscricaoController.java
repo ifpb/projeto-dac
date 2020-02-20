@@ -8,6 +8,7 @@ import br.edu.ifpb.dac.ejb.entidades.Inscricao;
 import br.edu.ifpb.dac.ejb.entidades.Tema;
 import br.edu.ifpb.dac.ejb.services.impl.InscricaoService;
 import br.edu.ifpb.dac.ejb.services.impl.PeriodoService;
+import br.edu.ifpb.dac.ejb.util.MailUtil;
 import br.edu.ifpb.dac.web.LoginUsuarioBean;
 
 import javax.enterprise.context.RequestScoped;
@@ -52,6 +53,8 @@ public class InscricaoController implements Serializable {
             inscricao.setDataInscricao(new Date());
             inscricao.setPeriodo(periodoService.buscarPorData(new Date()));
             inscricaoService.salvar(inscricao);
+            MailUtil.enviarEmail(inscricao.getProfessor().getEmail(),inscricao.getProfessor().getNome(),
+                    inscricao.getAluno().getNome(), tema.getTitulo());
             return "/restricted/indexaluno?faces-redirect=true";
 //        }catch (Exception e){
 //            FacesMessage facesMessage = new FacesMessage(
