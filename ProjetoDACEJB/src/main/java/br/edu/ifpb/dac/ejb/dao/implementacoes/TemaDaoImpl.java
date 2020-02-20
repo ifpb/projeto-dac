@@ -6,6 +6,7 @@ import br.edu.ifpb.dac.ejb.entidades.Tema;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -47,5 +48,11 @@ public class TemaDaoImpl implements TemaDao {
     @Override
     public List<Tema> buscarTemasDisponiveis() {
         return em.createQuery("SELECT t FROM Tema t WHERE t.disponivel = 'true'", Tema.class).getResultList();
+    }
+
+    public List<Tema> buscaTemaPorProfessor(Long id) {
+        Query query = em.createQuery("SELECT t FROM Tema t WHERE t.professor.id = :id",Tema.class);
+        query.setParameter("id",id);
+        return query.getResultList();
     }
 }

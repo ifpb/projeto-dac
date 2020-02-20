@@ -102,7 +102,7 @@ public class TemaController implements Serializable {
     }
 
     public List<Tema> getTemas() {
-        return temas;
+        return temaDao.buscaTemaPorProfessor(loginService.getProfessorLogado().getId());
     }
 
     public void setTemas(List<Tema> temas) {
