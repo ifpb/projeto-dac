@@ -24,6 +24,8 @@ public class TemaController implements Serializable {
 
     private List<Tema> temas = new ArrayList<>();
 
+    private List<Tema> temasDisponiveis= new ArrayList<>();
+
     @EJB
     private TemaDao temaDao;
     
@@ -36,6 +38,7 @@ public class TemaController implements Serializable {
     @PostConstruct
     public void init(){
         carregarTemas();
+        buscarTemasDisponiveis();
         tema = new Tema();
     }
     
@@ -78,13 +81,20 @@ public class TemaController implements Serializable {
         carregarTemas();
     }
 
-    public String buscarTema(Long id){
-        this.temaDao.buscar(id);
-        return "?????w"; // Definir para onde será redirecionado
+    public void buscarTemasDisponiveis(){
+        this.temasDisponiveis = this.temaDao.buscarTemasDisponiveis();
     }
 
     public Tema getTema() {
         return tema;
+    }
+
+    public List<Tema> getTemasDisponiveis() {
+        return temasDisponiveis;
+    }
+
+    public void setTemasDisponiveis(List<Tema> temasDisponiveis) {
+        this.temasDisponiveis = temasDisponiveis;
     }
 
     public void setTema(Tema tema) {

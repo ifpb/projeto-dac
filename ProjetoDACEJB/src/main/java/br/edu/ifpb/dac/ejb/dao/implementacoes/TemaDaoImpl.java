@@ -43,4 +43,9 @@ public class TemaDaoImpl implements TemaDao {
     public List<Tema> buscarTodos() {
         return em.createQuery("SELECT t FROM Tema t", Tema.class).getResultList();
     }
+
+    @Override
+    public List<Tema> buscarTemasDisponiveis() {
+        return em.createQuery("SELECT t FROM Tema t WHERE t.disponivel = 'true'", Tema.class).getResultList();
+    }
 }

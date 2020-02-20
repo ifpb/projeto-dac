@@ -7,16 +7,17 @@
     <ui:define name="principal">
         <div class="container">
             <h:form>
-                <h:dataTable styleClass="table" value="#{temaController.temas}" var="tema">
+                <h:dataTable styleClass="table" value="#{temaController.temasDisponiveis}" var="tema">
                     <h:column scope="col">
                         <f:facet name="header">Titulo</f:facet>
                         #{tema.titulo}
                     </h:column>
                     <h:column scope="col">
                         <f:facet name="header">Disponível</f:facet>
+                        <h:outputLabel rendered="#{tema.disponivel}" value="Sim"/>
                         <p:messages autoUpdate="true"/>
-                        <h:commandButton value="Inscrever" action="#{inscricaoController.salvar(tema)}" styleClass="btn btn-primary navbar-right offset" role="button" />
-
+                        <h:commandButton value="Inscrever" action="#{inscricaoController.salvar(tema)}"
+                                         styleClass="btn btn-primary navbar-right offset" role="button" />
                     </h:column>
                 </h:dataTable>
 

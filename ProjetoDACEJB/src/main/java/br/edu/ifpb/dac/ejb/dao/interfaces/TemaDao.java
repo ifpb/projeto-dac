@@ -14,4 +14,6 @@ public interface TemaDao {
     void remover(Tema t);
 
     List<Tema> buscarTodos();
+
+    List<Tema> buscarTemasDisponiveis();
 }
