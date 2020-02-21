@@ -17,4 +17,8 @@ public interface InscricaoDao {
     List<Inscricao> buscarTodos();
 
     List<Avaliacao> listarAvaliacao(Inscricao i);
+
+    List<Inscricao> listarInscritosProfessor(Long id);
+
+
 }

@@ -2,6 +2,7 @@ package br.edu.ifpb.dac.ejb.services.impl;
 
 import br.edu.ifpb.dac.ejb.dao.interfaces.InscricaoDao;
 import br.edu.ifpb.dac.ejb.dao.interfaces.PeriodoDao;
+import br.edu.ifpb.dac.ejb.entidades.Avaliacao;
 import br.edu.ifpb.dac.ejb.entidades.Inscricao;
 import br.edu.ifpb.dac.ejb.entidades.Tema;
 
@@ -37,6 +38,10 @@ public class InscricaoService {
         if (validaPeriodo()){
             inscricaoDao.atualizar(inscricao);
         }
+    }
+
+    public List <Inscricao> buscarInscricaoProfessor(Long id){
+        return inscricaoDao.listarInscritosProfessor(id);
     }
 
     public Inscricao buscar(Long id){

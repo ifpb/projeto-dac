@@ -3,10 +3,12 @@ package br.edu.ifpb.dac.ejb.dao.implementacoes;
 import br.edu.ifpb.dac.ejb.dao.interfaces.InscricaoDao;
 import br.edu.ifpb.dac.ejb.entidades.Avaliacao;
 import br.edu.ifpb.dac.ejb.entidades.Inscricao;
+import br.edu.ifpb.dac.ejb.entidades.Tema;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -49,6 +51,13 @@ public class InscricaoDaoImpl implements InscricaoDao {
     public List<Avaliacao> listarAvaliacao(Inscricao i) {
 //        return em.createQuery("SELECT i. FROM Inscricao i")
         return null;
+    }
+
+    @Override
+    public List<Inscricao> listarInscritosProfessor(Long id) {
+        Query query = em.createQuery("SELECT i FROM Inscricao i WHERE i.professor.id = :id", Inscricao.class);
+        query.setParameter("id",id);
+        return query.getResultList();
     }
 
 }

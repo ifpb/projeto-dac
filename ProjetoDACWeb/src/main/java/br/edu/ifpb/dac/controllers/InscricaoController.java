@@ -40,6 +40,9 @@ public class InscricaoController implements Serializable {
     @Inject
     private InscricaoService inscricaoService;
 
+    @Inject
+    private LoginUsuarioBean loginService;
+
     public List<Inscricao> buscarTodosAsInscricoes(){
         return inscricaoService.buscarTodos();
     }
@@ -73,6 +76,10 @@ public class InscricaoController implements Serializable {
     public String buscarInscricao(Long id){
         this.inscricaoService.buscar(id);
         return "?????w"; // Definir para onde será redirecionado
+    }
+
+    public List <Inscricao> getInscricaoPorProfessor(){
+        return inscricaoService.buscarInscricaoProfessor(loginService.getProfessorLogado().getId());
     }
 
     public Inscricao getInscricao() {
