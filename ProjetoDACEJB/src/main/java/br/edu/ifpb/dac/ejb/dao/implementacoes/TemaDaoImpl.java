@@ -45,11 +45,24 @@ public class TemaDaoImpl implements TemaDao {
         return em.createQuery("SELECT t FROM Tema t", Tema.class).getResultList();
     }
 
-    @Override
+  /*  @Override
     public List<Tema> buscarTemasDisponiveis(String curso) {
     	String jpql = "SELECT t FROM Tema t, Professor p WHERE p.curso = :curso AND t.disponivel = 'true'";
         return em.createQuery(jpql, Tema.class).setParameter("curso", curso).getResultList();
-    }
+    
+    }*/   
+    /*@Override
+    public List<Tema> buscarTemasDisponiveis(String curso) {
+    	String jpql = "SELECT t FROM Tema t JOIN Professor p WHERE t.disponivel = 'true' AND p.curso = :curso";
+        return em.createQuery(jpql, Tema.class).setParameter("curso", curso).getResultList();
+    
+    }  */
+    @Override
+    public List<Tema> buscarTemasDisponiveis(String curso) {
+    	String jpql = "SELECT t FROM Tema t JOIN t.professor p WHERE p.curso = :curso AND t.disponivel = 'true'";
+        return em.createQuery(jpql, Tema.class).setParameter("curso", curso).getResultList();
+    
+    }     
 
     public List<Tema> buscaTemaPorProfessor(Long id) {
         Query query = em.createQuery("SELECT t FROM Tema t WHERE t.professor.id = :id",Tema.class);
