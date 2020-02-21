@@ -37,6 +37,10 @@ public class UsuarioController implements Serializable {
         return this.usuarioService.buscarPorMatricula(matricula);
     }
 
+    public String goToIndex(){
+        return "/restricted/indexadmin?faces-redirect=true";
+    }
+
     public Usuario getUsuario() {
         return usuario;
     }

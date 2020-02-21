@@ -85,6 +85,9 @@ public class AlunoController implements Serializable {
         return "/restricted/editarPerfilAluno.xhtml?faces-redirect=true";
     }
 
+    public String goToIndex(){
+        return "/restricted/indexaluno?faces-redirect=true";
+    }
 
 
 //getters e setters

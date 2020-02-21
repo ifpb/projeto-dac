@@ -90,6 +90,10 @@ public class ProfessorController implements Serializable {
         return "/restricted/avaliacaoProfessor.xhtml?faces-redirect=true";
     }
 
+    public String goToIndex(){
+        return "/restricted/indexprofessor?faces-redirect=true";
+    }
+
     public LoginUsuarioBean getLoginService() {
         return loginService;
     }
