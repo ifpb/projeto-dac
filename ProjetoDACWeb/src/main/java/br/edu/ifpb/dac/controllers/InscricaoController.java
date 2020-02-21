@@ -11,12 +11,14 @@ import br.edu.ifpb.dac.ejb.services.impl.PeriodoService;
 import br.edu.ifpb.dac.ejb.util.MailUtil;
 import br.edu.ifpb.dac.web.LoginUsuarioBean;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,9 +29,16 @@ public class InscricaoController implements Serializable {
 
     private Inscricao inscricao;
 
+    private List<Inscricao> inscricoes = new ArrayList<>();
+
     private Tema tema;
 
     private Aluno alunoLogado;
+
+    @PostConstruct
+    public void init(){
+        carregarInscricoes();
+    }
 
     @Inject
     private LoginUsuarioBean usuario;
@@ -73,6 +82,10 @@ public class InscricaoController implements Serializable {
         this.inscricaoService.atualizar(inscricao);
         return "??????"; // Definir para onde será redirecionado
     }
+
+    public void carregarInscricoes(){
+        this.inscricoes = inscricaoService.buscarInscricaoProfessor(loginService.getProfessorLogado().getId());
+    }
     public String buscarInscricao(Long id){
         this.inscricaoService.buscar(id);
         return "?????w"; // Definir para onde será redirecionado
@@ -98,4 +111,11 @@ public class InscricaoController implements Serializable {
         this.tema = tema;
     }
 
+    public List<Inscricao> getInscricoes() {
+        return inscricoes;
+    }
+
+    public void setInscricoes(List<Inscricao> inscricoes) {
+        this.inscricoes = inscricoes;
+    }
 }

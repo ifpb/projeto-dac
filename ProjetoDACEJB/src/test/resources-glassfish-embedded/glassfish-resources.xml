@@ -9,7 +9,7 @@
     					  res-type="javax.sql.DataSource"
                           datasource-classname="org.postgresql.ds.PGSimpleDataSource">
         <property name="user" value="postgres"/>
-        <property name="password" value="123"/> <!--Altere aqui a sua senha do banco-->
+        <property name="password" value="1234"/> <!--Altere aqui a sua senha do banco-->
         <property name="url" value="jdbc:postgresql://localhost:5432/dac"/>
     </jdbc-connection-pool>
 </resources>

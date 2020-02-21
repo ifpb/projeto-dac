@@ -4,7 +4,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="templateProfessor.xhtml">
     <ui:define name="principal">
-        <h:panelGroup rendered="#{not empty inscricaoController.inscricoesgit}">
+        <h:panelGroup rendered="#{not empty inscricaoController.inscricoes}">
             <div class="container">
                 <h:dataTable var="inscricao" value="#{inscricaoController.inscricoes}">
                     <h:column>
