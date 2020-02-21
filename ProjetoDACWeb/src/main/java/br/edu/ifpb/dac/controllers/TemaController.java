@@ -38,7 +38,6 @@ public class TemaController implements Serializable {
     @PostConstruct
     public void init(){
         carregarTemas();
-        buscarTemasDisponiveis();
         tema = new Tema();
     }
     
@@ -57,6 +56,7 @@ public class TemaController implements Serializable {
     }
     public String cancelarEdicao(){
     	this.tema= new Tema();
+    	this.carregarTemas();
     	this.acao.setAcao("CADASTRO");
     	return "null";
     }
@@ -81,8 +81,8 @@ public class TemaController implements Serializable {
         carregarTemas();
     }
 
-    public void buscarTemasDisponiveis(){
-        this.temasDisponiveis = this.temaDao.buscarTemasDisponiveis();
+    public void buscarTemasDisponiveis(String curso){
+        this.temasDisponiveis = this.temaDao.buscarTemasDisponiveis(curso);
     }
 
     public Tema getTema() {

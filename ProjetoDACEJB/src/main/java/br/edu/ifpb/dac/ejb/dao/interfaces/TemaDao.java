@@ -15,7 +15,7 @@ public interface TemaDao {
 
     List<Tema> buscarTodos();
 
-    List<Tema> buscarTemasDisponiveis();
+    List<Tema> buscarTemasDisponiveis(String curso);
 
     List<Tema> buscaTemaPorProfessor(Long id);
 
