@@ -23,7 +23,10 @@ public class AlunoController implements Serializable {
 
     private Aluno aluno = new Aluno();
 
-	private Inscricao inscricao;    
+	private Inscricao inscricao;  
+	
+	@Inject
+	private TemaController temaService;
     
     @Inject
     private InscricaoService inscricaoService;
@@ -78,6 +81,8 @@ public class AlunoController implements Serializable {
     }
 
     public String goToTemasAlunos(){
+    	String curso = this.loginService.getAlunoLogado().getCurso();
+    	this.temaService.buscarTemasDisponiveis(curso);
         return "/restricted/temasalunos.xhtml?faces-redirect=true";
     }
 
