@@ -29,7 +29,7 @@
         <div id="topo"  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <h4 class="infocabecalho">Página Inicial - Seja bem-vindo Professor #{loginUsuarioBean.nomeProfessor}</h4>
+                    <h4 class="infocabecalho">Seja bem-vindo, professor #{loginUsuarioBean.nomeProfessor}</h4>
                 </div>
                 <div class="navbar-collapse collapse">
                     <div class="row" style="padding-top: 10px;">
@@ -38,7 +38,7 @@
 
                             <h:commandLink value="Editar Perfil" action="#{professorController.goToEditarPerfil}" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
 
-                            <h:commandLink value="Solicitações" action="#{professorController.goPageSolicitacoespo}" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
+                            <h:commandLink value="Solicitações" action="#{professorController.goToSolicitacao}" styleClass="btn btn-primary navbar-right offset" role="button" style="margin-right: 5px;"/>
 
                             <h:commandLink value="Avaliações" action="#{professorController.goToAvaliacao}" styleClass="btn btn-primary navbar-right offset " role="button" style="margin-right: 5px;"/>
 

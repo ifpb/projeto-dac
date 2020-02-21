@@ -1,26 +1,23 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="templateProfessor.xhtml">
     <ui:define name="principal">
-        <h:panelGroup rendered="#{not empty inscricaoController.inscricoes}">
-            <div class="container">
-                <h:dataTable var="inscricao" value="#{inscricaoController.inscricoes}">
-                    <h:column>
-                        <f:facet name="header">Nome</f:facet>
-                        #{inscricao.aluno.nome}
+        <div class="container">
+            <h:form>
+                <h:dataTable styleClass="table" value="#{inscricaoController.getInscricaoPorProfessor}" var="inscricoes">
+
+                    <h:column scope="col">
+                        <a:facet name="header">Disponível</a:facet>
+                        #{inscricoes.dataInscricao}
                     </h:column>
-                    <h:column>
-                        <f:facet name="header">Tema</f:facet>
-                        #{inscricao.tema.titulo}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Status</f:facet>
-                        #{inscricao.status}
-                    </h:column>
+
+
+
                 </h:dataTable>
-            </div>
-        </h:panelGroup>
+            </h:form>
+        </div>
     </ui:define>
 </ui:composition>
