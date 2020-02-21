@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:a="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templateProfessor.xhtml">
+    <ui:define name="principal">
+        <div class="container">
+            <p:messages autoUpdate="true"/>
+            <h:form styleClass="card">
+                <h1>Avaliação da inscrição</h1>
+                <div class="form-group">
+                    <h:outputLabel value="Nota da Avaliação" for="nota"/>
+                    <h:inputText id="nota" styleClass="form-control" required="true" requiredMessage="Campo obrigatório" value="">
+                        <f:convertNumber integerOnly="true" minIntegerDigits="1" />
+                    </h:inputText>
+                    <p:messages autoUpdate="true" for="nota"/>
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel value="Critério da avaliação" for="criterio"/>
+                    <h:inputText id="criterio" styleClass="form-control" required="true" requiredMessage="Campo Obrigatório" value=""/>
+                    <p:messages autoUpdate="true" for="criterio"/>
+                </div>
+                <h:commandButton value="Salvar avaliação" action="#" styleClass="btn btn-primary navbar-right offset" role="button" />
+
+                <h:commandButton value="Salvar critério" action="#" styleClass="btn btn-primary navbar-right offset" role="button" />
+
+
+            </h:form>
+
+        </div>
+
+
+
+    </ui:define>
+</ui:composition>

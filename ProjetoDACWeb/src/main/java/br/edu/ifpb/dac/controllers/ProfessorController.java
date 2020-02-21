@@ -86,6 +86,10 @@ public class ProfessorController implements Serializable {
         return "/restricted/editarPerfilProfessor.xhtml?faces-redirect=true";
     }
 
+    public String goToAvaliacao(){
+        return "/restricted/avaliacaoProfessor.xhtml?faces-redirect=true";
+    }
+
     public LoginUsuarioBean getLoginService() {
         return loginService;
     }
