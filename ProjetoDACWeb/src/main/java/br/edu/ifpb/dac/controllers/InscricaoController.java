@@ -35,10 +35,6 @@ public class InscricaoController implements Serializable {
 
     private Aluno alunoLogado;
 
-    @PostConstruct
-    public void init(){
-        carregarInscricoes();
-    }
 
     @Inject
     private LoginUsuarioBean usuario;
@@ -58,7 +54,7 @@ public class InscricaoController implements Serializable {
 
     public String salvar(Tema tema){
         this.inscricao = new Inscricao();
-//        try{
+        try{
             inscricao.setTema(tema);
             inscricao.setProfessor(tema.getProfessor());
             inscricao.setAluno(usuario.getAlunoLogado());
@@ -68,14 +64,14 @@ public class InscricaoController implements Serializable {
             MailUtil.enviarEmail(inscricao.getProfessor().getEmail(),inscricao.getProfessor().getNome(),
                     inscricao.getAluno().getNome(), tema.getTitulo());
             return "/restricted/indexaluno?faces-redirect=true";
-//        }catch (Exception e){
-//            FacesMessage facesMessage = new FacesMessage(
-//                    FacesMessage.SEVERITY_ERROR,
-//                    "Período de inscrições encerradas!",
-//                    "Detalhe");
-//            FacesContext.getCurrentInstance().addMessage("msg", facesMessage);
-//            return null;
-//        }
+        }catch (Exception e){
+            FacesMessage facesMessage = new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,
+                    "Período de inscrições encerradas!",
+                    "Detalhe");
+            FacesContext.getCurrentInstance().addMessage("msg", facesMessage);
+            return null;
+        }
     }
 
     public String atualizar(Inscricao inscricao){
@@ -83,9 +79,6 @@ public class InscricaoController implements Serializable {
         return "??????"; // Definir para onde será redirecionado
     }
 
-    public void carregarInscricoes(){
-        this.inscricoes = inscricaoService.buscarInscricaoProfessor(loginService.getProfessorLogado().getId());
-    }
     public String buscarInscricao(Long id){
         this.inscricaoService.buscar(id);
         return "?????w"; // Definir para onde será redirecionado
